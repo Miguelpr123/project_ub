@@ -30,6 +30,14 @@ function iniciar(){
                 if( ciudades.length == 0 ){
                     ciudades = req.responseText;
                 }
+
+                if( xUser == null || yUser == null ){
+                    btnLocation.style.display = 'block';
+                    navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
+                }else{
+                    btnLocation.style.display = 'none';
+                    getCityId();
+                }
                             
                 console.log(ciudades);
                 console.log(xUser);
@@ -43,12 +51,7 @@ function iniciar(){
     };
     req.send(null);
 
-    if( xUser == null || yUser == null ){
-        btnLocation.style.display = 'block';
-    }else{
-        btnLocation.style.display = 'none';
-        getCityId();
-    }
+    
 }
 
 function getCityId() {
