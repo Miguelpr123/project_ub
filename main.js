@@ -2,10 +2,6 @@ xUser = null;
 yUser = null;
 navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
 
-window.addEventListener('load', iniciar, false);
-console.log(xUser);
-console.log(yUser);
-
 function iniciar(){ 
 
     idTerminalDistanciaMenor = 0;
@@ -107,7 +103,7 @@ function IdTerminalDistanciaMenor( xUser , yUser , xTerminal , yTerminal , idTer
 }
 
 
-
+window.addEventListener('load', iniciar, false);
 
 
 
