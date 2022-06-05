@@ -1,7 +1,7 @@
 
 
 var req = new XMLHttpRequest();
-req.open('GET', 'https://jsonplaceholder.typicode.com/users', true);
+req.open('GET', 'https://api.hh.ru/metro?locale=EN', true);
 req.onreadystatechange = function (aEvt) {
   if (req.readyState == 4) {
      if(req.status == 200)
