@@ -1,15 +1,8 @@
+function reqListener () {
+  console.log(this.responseText);
+}
 
-const request = new XMLHttpRequest();
-
-request.addEventListener('readystatechange' , e=>{
-    //leer docs about XMLHttpRequest.readyState
-    if(e.target.readyState === 4 ){
-        const datos = JSON.parse(e.target.responseText);
-        console.log(datos);
-    }
-});
-
-request.open('GET' , 'http://jsonplaceholder.typicode.com/users' );
-request.send();
-
-console.log(request);
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", reqListener);
+oReq.open("GET", "http://www.example.org/example.txt");
+oReq.send();
