@@ -4,5 +4,5 @@ function reqListener () {
 
 var oReq = new XMLHttpRequest();
 oReq.addEventListener("load", reqListener);
-oReq.open("GET", "http://jsonplaceholder.typicode.com/users");
+oReq.open("GET", "https://jsonplaceholder.typicode.com/users");
 oReq.send();
