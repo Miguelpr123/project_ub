@@ -34,6 +34,8 @@ function iniciar(){
                 if( xUser == null || yUser == null ){
                     btnLocation.style.display = 'block';
                     navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
+                    console.log(xUser);
+                    console.log(yUser);
                 }else{
                     btnLocation.style.display = 'none';
                     getCityId();
