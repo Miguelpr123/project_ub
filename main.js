@@ -1,4 +1,4 @@
-alert('v2.2.2');
+alert('v2.2.3');
 
 
 usuarioCoords = new Promise( (resolve , reject)=>{
@@ -20,7 +20,13 @@ usuarioCoords = new Promise( (resolve , reject)=>{
                         if( xUser != null && yUser != null ){
                             resolve([xUser , yUser]);
                         }else{
-                            alert('TIEMPO EXEDIDO');
+                            setTimeout( ()=>{
+                                if( xUser != null && yUser != null ){
+                                    resolve([xUser , yUser]);
+                                }else{
+                                    alert('TIEMPO EXEDIDO');
+                                }
+                            } , 10000);
                         }
                     } , 3000);
                 }
@@ -52,6 +58,7 @@ req.onreadystatechange = function (aEvt) {
     if (req.readyState == 4) {
         if(req.status == 200){                        
             vacancies = req.responseText;
+            alert('vacancies request: '+vacancies);
         }else{
             console.log("Error loading page\n");
         }
