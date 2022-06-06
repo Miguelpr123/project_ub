@@ -1,4 +1,4 @@
-alert('v2.2.8');
+alert('v2.2.9');
 
 ciudades = [];
 vacancies = [];
@@ -72,7 +72,7 @@ reqVacancies.send(null);
 //----------------------------------------------------------------------------
 
 
-function iniciar(){ 
+function inicioNeo(){ 
 
     idTerminalDistanciaMenor = 0;
     distanciaMenor = 0;    
@@ -166,7 +166,7 @@ function IdTerminalDistanciaMenor( xUser , yUser , xTerminal , yTerminal , idTer
 
 }
 
-window.addEventListener('load', iniciar, false);
+window.addEventListener('load', inicioNeo, false);
 
 
 
