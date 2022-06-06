@@ -44,11 +44,10 @@ function iniciar(){
         console.log('xUser dentro del TimeOut: '+xUser);
         console.log('yUser dentro del TimeOut: '+yUser);
         if(xUser!=null && yUser!=null ){
-            getCityId();
+            IDCity = getCityId();
+            console.log('IDCity: '+IDCity);
         }
-    } , 5000);
-    
-
+    } , 8000);
     
 }
 
@@ -106,8 +105,6 @@ function IdTerminalDistanciaMenor( xUser , yUser , xTerminal , yTerminal , idTer
 
 
 window.addEventListener('load', iniciar, false);
-
-
 
 
 
