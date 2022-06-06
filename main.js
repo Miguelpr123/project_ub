@@ -38,6 +38,14 @@ function iniciar(){
 
     btnLocation.addEventListener('click' , ()=>{
         navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
+        setTimeout( ()=>{
+            console.log('xUser dentro del TimeOut: '+xUser);
+            console.log('yUser dentro del TimeOut: '+yUser);
+            if(xUser!=null && yUser!=null ){
+                IDCity = getCityId();
+                console.log('IDCity: '+IDCity);
+            }
+        } , 8000);
     });
     
     setTimeout( ()=>{
@@ -90,7 +98,7 @@ function IdTerminalDistanciaMenor( xUser , yUser , xTerminal , yTerminal , idTer
     deltaY = Math.abs(yTerminal) - Math.abs(yUser);
 
     distancia = Math.sqrt( Math.pow( deltaX , 2 ) + Math.pow( deltaY , 2 ) ) ;
-    console.log('distancia: '+distancia);
+    // console.log('distancia: '+distancia);
 
     if( distancia < distanciaMenor || distanciaMenor == 0  ){
         distanciaMenor = distancia;
