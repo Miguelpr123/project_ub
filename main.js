@@ -1,7 +1,9 @@
-alert('v2.3.4');
+alert('v2.3.5');
 
 ciudades = [];
 vacancies = [];
+xUser = null;
+yUser = null;
 
 
 usuarioCoords = new Promise( (resolve , reject)=>{
