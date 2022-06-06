@@ -1,4 +1,4 @@
-alert('v2.2.6');
+alert('v2.2.7');
 
 
 usuarioCoords = new Promise( (resolve , reject)=>{
@@ -54,7 +54,7 @@ reqCiudades.send(null);
 
 //AJAX VACANCY REQUEST 
 reqVacancies = new XMLHttpRequest();
-reqVacancies.open('GET', 'https:api.hh.ru/vacancies?locale=EN', true);
+reqVacancies.open('GET', 'https://api.hh.ru/vacancies?locale=EN', true);
 reqVacancies.onreadystatechange = function (aEvt) {
     if (reqVacancies.readyState == 4) {
         if(reqVacancies.status == 200){                        
