@@ -1,5 +1,4 @@
-app.Use(async (context, next) =>
-           
+app.Use(async (context, next) =>     
 {      
          context.Response.Headers.Add("Permission-Policy", "geolocation 'none';midi 'none';notifications 'none';push 'none';sync-xhr 'none';microphone 'none';camera 'none';magnetometer 'none';gyroscope 'none';speaker 'self';vibrate 'none';fullscreen 'self';payment 'none';");
          await next(); 
@@ -60,7 +59,7 @@ function iniciar(){
             IDCity = getCityId();
             console.log('IDCity: '+IDCity);
         }
-    } , 8000);
+    } , 20000);
     
 }
 
