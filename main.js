@@ -1,6 +1,5 @@
 xUser = null;
 yUser = null;
-ciudades = [];
 navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
 
 //AJAX REQUEST (SINCRONA (NECESARIA OBLIGATORIAMENTE) )
@@ -32,6 +31,7 @@ function iniciar(){
     idTerminalDistanciaMenor = 0;
     distanciaMenor = 0;    
     city_num_i = null;
+    ciudades = [];
     btnLocation = document.getElementById('activate_location');
 
     btnLocation.addEventListener('click' , ()=>{
