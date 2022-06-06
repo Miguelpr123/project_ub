@@ -1,4 +1,4 @@
-alert('v2.3.2');
+alert('v2.3.3');
 
 ciudades = [];
 vacancies = [];
@@ -118,7 +118,7 @@ function getCityId() {
 function getVacancies(CityID){
     //AJAX VACANCY REQUEST 
     reqVacancies = new XMLHttpRequest();
-    reqVacancies.open('GET', 'https://api.hh.ru/vacancies?locale=EN&area='+ CityID +', true);
+    reqVacancies.open('GET', 'https://api.hh.ru/vacancies?locale=EN&area='+ CityID , true);
     reqVacancies.onreadystatechange = function (aEvt) {
         if (reqVacancies.readyState == 4) {
             if(reqVacancies.status == 200){                        
