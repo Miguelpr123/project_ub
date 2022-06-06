@@ -43,10 +43,12 @@ function iniciar(){
     setTimeout( ()=>{
         console.log('xUser dentro del TimeOut: '+xUser);
         console.log('yUser dentro del TimeOut: '+yUser);
+        alert('xUser dentro del TimeOut: '+xUser);
+        alert('yUser dentro del TimeOut: '+yUser);
         if(xUser!=null && yUser!=null ){
             getCityId();
         }
-    } , 5000);
+    } , 20000);
     
 
     
