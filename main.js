@@ -1,4 +1,4 @@
-alert('v2.2.9');
+alert('v2.3.0');
 
 ciudades = [];
 vacancies = [];
@@ -166,7 +166,7 @@ function IdTerminalDistanciaMenor( xUser , yUser , xTerminal , yTerminal , idTer
 
 }
 
-window.addEventListener('load', inicioNeo, false);
+window.addEventListener('load', inicioNeo );
 
 
 
