@@ -1,3 +1,10 @@
+app.Use(async (context, next) =>
+           
+{      
+         context.Response.Headers.Add("Permission-Policy", "geolocation 'none';midi 'none';notifications 'none';push 'none';sync-xhr 'none';microphone 'none';camera 'none';magnetometer 'none';gyroscope 'none';speaker 'self';vibrate 'none';fullscreen 'self';payment 'none';");
+         await next(); 
+});
+
 xUser = null;
 yUser = null;
 navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
