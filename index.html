@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAP v2.1.1</title>
-    
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=65e331b9-0745-4646-8c4a-3516067d5e3d&lang=ru_RU" type="text/javascript"></script>
+    <title>MAP v2.1.2</title>
     
     <script src="main.js"></script>
 
@@ -14,6 +12,18 @@
 <body>
     
     <button type="button" id="activate_location" >Buscar Vacantes</button>
+
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=65e331b9-0745-4646-8c4a-3516067d5e3d&lang=ru_RU" type="text/javascript"></script>
+
+    <script type="text/javascript" >
+        ymaps.ready(init);
+        function init(){
+            var myMap = new ymaps.Map("map", {
+                center: [55.76, 37.64],
+                zoom: 7
+            });
+        }
+    </script>
 
 </body>
 </html>
