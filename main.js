@@ -1,4 +1,3 @@
-
 xUser = null;
 yUser = null;
 navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
@@ -11,8 +10,9 @@ req.onreadystatechange = function (aEvt) {
     if (req.readyState == 4) {
 
         if(req.status == 200){
-            
-            ciudades = req.responseText;
+            if( ciudades.length == 0 ){
+                ciudades = req.responseText;
+            }
                         
             console.log(ciudades);
             console.log(xUser);
@@ -27,36 +27,28 @@ req.onreadystatechange = function (aEvt) {
 req.send(null);
 
 
+
 function iniciar(){ 
 
     idTerminalDistanciaMenor = 0;
-    distanciaMenor = 0;    
+    distanciaMenor = 0;
+    ciudades = [];    
     city_num_i = null;
-    ciudades = [];
     btnLocation = document.getElementById('activate_location');
 
     btnLocation.addEventListener('click' , ()=>{
         navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
-        setTimeout( ()=>{
-            console.log('xUser dentro del TimeOut: '+xUser);
-            console.log('yUser dentro del TimeOut: '+yUser);
-            if(xUser!=null && yUser!=null ){
-                IDCity = getCityId();
-                console.log('IDCity: '+IDCity);
-            }
-        } , 8000);
     });
     
     setTimeout( ()=>{
         console.log('xUser dentro del TimeOut: '+xUser);
         console.log('yUser dentro del TimeOut: '+yUser);
-        alert('xUser dentro del TimeOut: '+xUser);
-        alert('yUser dentro del TimeOut: '+yUser);
         if(xUser!=null && yUser!=null ){
-            IDCity = getCityId();
-            console.log('IDCity: '+IDCity);
+            getCityId();
         }
-    } , 20000);
+    } , 5000);
+    
+
     
 }
 
@@ -90,6 +82,8 @@ function getCityId() {
 
 };
 
+
+
 /** ALGORITMO BUSCAR LA TERMINAL DE MENOR DISTANCIA CON RESPECTO A LA UBICACION DEL USUARIO */
 function IdTerminalDistanciaMenor( xUser , yUser , xTerminal , yTerminal , idTerminal , city_i ){
  
@@ -97,7 +91,7 @@ function IdTerminalDistanciaMenor( xUser , yUser , xTerminal , yTerminal , idTer
     deltaY = Math.abs(yTerminal) - Math.abs(yUser);
 
     distancia = Math.sqrt( Math.pow( deltaX , 2 ) + Math.pow( deltaY , 2 ) ) ;
-    // console.log('distancia: '+distancia);
+    console.log('distancia: '+distancia);
 
     if( distancia < distanciaMenor || distanciaMenor == 0  ){
         distanciaMenor = distancia;
@@ -110,13 +104,8 @@ function IdTerminalDistanciaMenor( xUser , yUser , xTerminal , yTerminal , idTer
 
 }
 
+
 window.addEventListener('load', iniciar, false);
-
-
-
-
-
-
 
 
 
