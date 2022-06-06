@@ -2,6 +2,9 @@ xUser = null;
 yUser = null;
 navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
 
+console.log(xUser);
+console.log(yUser);
+
 function iniciar(){ 
 
     idTerminalDistanciaMenor = 0;
@@ -30,17 +33,7 @@ function iniciar(){
                 if( ciudades.length == 0 ){
                     ciudades = req.responseText;
                 }
-
-                if( xUser == null || yUser == null ){
-                    btnLocation.style.display = 'block';
-                    navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
-                    console.log(xUser);
-                    console.log(yUser);
-                }else{
-                    btnLocation.style.display = 'none';
-                    getCityId();
-                }
-                            
+                                            
                 console.log(ciudades);
                 console.log(xUser);
                 console.log(yUser);
@@ -53,6 +46,15 @@ function iniciar(){
     };
     req.send(null);
 
+    if( xUser == null || yUser == null ){
+        btnLocation.style.display = 'block';
+        navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
+        console.log(xUser);
+        console.log(yUser);
+    }else if(xUser != null && yUser != null ) {
+        btnLocation.style.display = 'none';
+        getCityId();
+    }
     
 }
 
