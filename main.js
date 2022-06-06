@@ -1,4 +1,7 @@
-alert('v2.2.7');
+alert('v2.2.8');
+
+ciudades = [];
+vacancies = [];
 
 
 usuarioCoords = new Promise( (resolve , reject)=>{
@@ -74,8 +77,6 @@ function iniciar(){
     idTerminalDistanciaMenor = 0;
     distanciaMenor = 0;    
     city_num_i = null;
-    ciudades = [];
-    vacancies = [];
     btnLocation = document.getElementById('activate_location');
 
     btnLocation.addEventListener('click' , ()=>{
