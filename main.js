@@ -1,7 +1,6 @@
 
 xUser = null;
 yUser = null;
-ciudades = [];
 navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
 
 //AJAX REQUEST (SINCRONA (NECESARIA OBLIGATORIAMENTE) )
@@ -51,6 +50,8 @@ function iniciar(){
     setTimeout( ()=>{
         console.log('xUser dentro del TimeOut: '+xUser);
         console.log('yUser dentro del TimeOut: '+yUser);
+        alert('xUser dentro del TimeOut: '+xUser);
+        alert('yUser dentro del TimeOut: '+yUser);
         if(xUser!=null && yUser!=null ){
             IDCity = getCityId();
             console.log('IDCity: '+IDCity);
