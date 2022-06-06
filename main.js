@@ -1,4 +1,4 @@
-alert('v2.2.5');
+alert('v2.2.6');
 
 
 usuarioCoords = new Promise( (resolve , reject)=>{
@@ -44,6 +44,7 @@ reqCiudades.onreadystatechange = function (aEvt) {
     if (reqCiudades.readyState == 4) {
         if(reqCiudades.status == 200){            
             ciudades = reqCiudades.responseText;
+            alert('ciudades request: '+ciudades);
         }else{
             console.log("Error loading page\n");
         }
