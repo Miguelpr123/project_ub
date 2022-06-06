@@ -1,24 +1,40 @@
-xUser = null;
-yUser = null;
-navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
+usuarioCoords = new Promise( (resolve , reject)=>{
 
-//AJAX REQUEST (SINCRONA (NECESARIA OBLIGATORIAMENTE) )
+    xUser=null;
+    yUser=null;
+
+    navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
+
+    setTimeout( ()=>{
+        if( xUser != null && yUser != null ){
+            resolve([xUser , yUser]);
+        }else{
+            setTimeout( ()=>{
+                if( xUser != null && yUser != null ){
+                    resolve([xUser , yUser]);
+                }else{
+                    setTimeout( ()=>{
+                        if( xUser != null && yUser != null ){
+                            resolve([xUser , yUser]);
+                        }else{
+                            alert('TIEMPO EXEDIDO');
+                        }
+                    } , 3000);
+                }
+            } , 3000);
+        }
+    } , 3000);
+
+});
+
+//AJAX REQUEST -------------------------------------------------------------
+//AJAX CITY REQUEST 
 req = new XMLHttpRequest();
 req.open('GET', 'https://api.hh.ru/metro?locale=EN', true);
-
 req.onreadystatechange = function (aEvt) {
     if (req.readyState == 4) {
-
-        if(req.status == 200){
-            if( ciudades.length == 0 ){
-                ciudades = req.responseText;
-            }
-                        
-            console.log(ciudades);
-            console.log(xUser);
-            console.log(yUser);
-            console.log('req: '+req);
-
+        if(req.status == 200){            
+            ciudades = req.responseText;
         }else{
             console.log("Error loading page\n");
         }
@@ -26,31 +42,51 @@ req.onreadystatechange = function (aEvt) {
 };
 req.send(null);
 
+//AJAX VACANCY REQUEST 
+req = new XMLHttpRequest();
+req.open('GET', ' https:api.hh.ru/vacancies?locale=EN', true);
+req.onreadystatechange = function (aEvt) {
+    if (req.readyState == 4) {
+        if(req.status == 200){                        
+            vacancies = req.responseText;
+        }else{
+            console.log("Error loading page\n");
+        }
+    }
+};
+req.send(null);
+//----------------------------------------------------------------------------
 
 
 function iniciar(){ 
 
     idTerminalDistanciaMenor = 0;
-    distanciaMenor = 0;
-    ciudades = [];    
+    distanciaMenor = 0;    
     city_num_i = null;
+    ciudades = [];
+    vacancies = [];
     btnLocation = document.getElementById('activate_location');
 
     btnLocation.addEventListener('click' , ()=>{
         navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
+        setTimeout( ()=>{
+            console.log('xUser dentro del TimeOut: '+xUser);
+            console.log('yUser dentro del TimeOut: '+yUser);
+            if(xUser!=null && yUser!=null ){
+                IDCity = getCityId();
+                console.log('IDCity: '+IDCity);
+            }
+        } , 8000);
     });
     
     setTimeout( ()=>{
-        console.log('xUser dentro del TimeOut: '+xUser);
-        console.log('yUser dentro del TimeOut: '+yUser);
-        alert('xUser dentro del TimeOut: '+xUser);
-        alert('yUser dentro del TimeOut: '+yUser);
         if(xUser!=null && yUser!=null ){
-            getCityId();
+            CityID = getCityId();
+
+            getVacancies(CityID);
+
         }
     } , 20000);
-    
-
     
 }
 
@@ -76,15 +112,30 @@ function getCityId() {
 
     }
     IDciudad = ciudades[city_num_i].id;
-    console.log(xUser);
-    console.log(yUser);
-    console.log(distanciaMenor);
-    console.log(IDciudad);
+    alert('IDciudad: '+IDciudad);
     return IDciudad;
 
 };
 
+function getVacancies(CityID){
+    vac_i = [];
+    idVacancy = [];
+    vacancies = JSON.parse(vacancies);
 
+    //Tengo q ver bien como recojo la request de las vacancies para poder recorrerlas
+    for (let i = 0; i < vacancies.length; i++) {
+        if (vacancies[i].area.id == cityId ) {
+            vac_i[vac_i.length] = i;
+            idVacancy[idVacancy.length] = vacancies[i].id;
+        }
+    }
+    /** vacancie[ vac_i[0] ].name */
+
+    alert('vacancies: '+vacancies);
+    alert('vacancies[0].name: '+vacancies[0].name);
+    alert('vacancies[ vac_i[0] ].name: '+vacancies[ vac_i[0] ].name);
+
+}
 
 /** ALGORITMO BUSCAR LA TERMINAL DE MENOR DISTANCIA CON RESPECTO A LA UBICACION DEL USUARIO */
 function IdTerminalDistanciaMenor( xUser , yUser , xTerminal , yTerminal , idTerminal , city_i ){
@@ -93,11 +144,9 @@ function IdTerminalDistanciaMenor( xUser , yUser , xTerminal , yTerminal , idTer
     deltaY = Math.abs(yTerminal) - Math.abs(yUser);
 
     distancia = Math.sqrt( Math.pow( deltaX , 2 ) + Math.pow( deltaY , 2 ) ) ;
-    console.log('distancia: '+distancia);
 
     if( distancia < distanciaMenor || distanciaMenor == 0  ){
         distanciaMenor = distancia;
-        console.log('Distancia Menor: '+distanciaMenor);
         idTerminalDistanciaMenor = idTerminal;
 
         city_num_i = city_i;
@@ -106,8 +155,13 @@ function IdTerminalDistanciaMenor( xUser , yUser , xTerminal , yTerminal , idTer
 
 }
 
-
 window.addEventListener('load', iniciar, false);
+
+
+
+
+
+
 
 
 
