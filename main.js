@@ -1,4 +1,4 @@
-alert('v2.3.0');
+alert('v2.3.1');
 
 ciudades = [];
 vacancies = [];
@@ -133,13 +133,17 @@ function getVacancies(CityID){
     idVacancy = [];
     vacancies = JSON.parse(vacancies);
 
-    //Tengo q ver bien como recojo la request de las vacancies para poder recorrerlas
-    for (let i = 0; i < vacancies.length; i++) {
-        if (vacancies[i].area.id == cityId ) {
-            vac_i[vac_i.length] = i;
-            idVacancy[idVacancy.length] = vacancies[i].id;
+    /*for (let i = 0; i < vacancies.length; i++) {
+        for (let j = 0; j < vacancies[i].area.length; j++) {
+            if (vacancies[i].area[j].id == cityId ) {
+                vac_i[vac_i.length] = i;
+                idVacancy[idVacancy.length] = vacancies[i].id;
+            }
         }
-    }
+    }*/
+    
+    alert('vacancies.length: '+vacancies.length);
+    
     /** vacancie[ vac_i[0] ].name */
 
     alert('vacancies: '+vacancies);
