@@ -55,7 +55,7 @@ function iniciar(){
             IDCity = getCityId();
             console.log('IDCity: '+IDCity);
 
-            mostrarMapa();
+            mostrarMapa( xUser , yUser );
         }
     } , 8000);
     
@@ -114,7 +114,7 @@ function IdTerminalDistanciaMenor( xUser , yUser , xTerminal , yTerminal , idTer
 function mostrarMapa( lat , lng ) {
     ymaps.ready = ()=>{
         myMap = new ymaps.Map("map", {
-            center: [55.76, 37.64],
+            center: [ lat , lng],
             zoom: 7
         });
     }
