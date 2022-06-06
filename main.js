@@ -1,3 +1,6 @@
+alert('v2.2.2');
+
+
 usuarioCoords = new Promise( (resolve , reject)=>{
 
     xUser=null;
@@ -79,14 +82,13 @@ function iniciar(){
         } , 8000);
     });
     
-    setTimeout( ()=>{
-        if(xUser!=null && yUser!=null ){
-            CityID = getCityId();
-
-            getVacancies(CityID);
-
-        }
-    } , 20000);
+    usuarioCoords.then( res =>{
+        xUser = res[0];
+        yUser = res[1];
+        
+        CityID = getCityId();
+        getVacancies(CityID);
+    });
     
 }
 
