@@ -2,8 +2,31 @@ xUser = null;
 yUser = null;
 navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
 
-console.log(xUser);
-console.log(yUser);
+//AJAX REQUEST (SINCRONA (NECESARIA OBLIGATORIAMENTE) )
+req = new XMLHttpRequest();
+req.open('GET', 'https://api.hh.ru/metro?locale=EN', true);
+
+req.onreadystatechange = function (aEvt) {
+    if (req.readyState == 4) {
+
+        if(req.status == 200){
+            if( ciudades.length == 0 ){
+                ciudades = req.responseText;
+            }
+                        
+            console.log(ciudades);
+            console.log(xUser);
+            console.log(yUser);
+            console.log('req: '+req);
+
+        }else{
+            console.log("Error loading page\n");
+        }
+    }
+};
+req.send(null);
+
+
 
 function iniciar(){ 
 
@@ -13,48 +36,19 @@ function iniciar(){
     city_num_i = null;
     btnLocation = document.getElementById('activate_location');
 
-    if( xUser == null || yUser == null ){
-        navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
-    }
-
     btnLocation.addEventListener('click' , ()=>{
         navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
     });
     
-
-    //AJAX REQUEST (SINCRONA (NECESARIA OBLIGATORIAMENTE) )
-    req = new XMLHttpRequest();
-    req.open('GET', 'https://api.hh.ru/metro?locale=EN', true);
-
-    req.onreadystatechange = function (aEvt) {
-        if (req.readyState == 4) {
-
-            if(req.status == 200){
-                if( ciudades.length == 0 ){
-                    ciudades = req.responseText;
-                }
-                                            
-                console.log(ciudades);
-                console.log(xUser);
-                console.log(yUser);
-                console.log('req: '+req);
-
-            }else{
-                console.log("Error loading page\n");
-            }
+    setTimeout( ()=>{
+        console.log('xUser dentro del TimeOut: '+xUser);
+        console.log('yUser dentro del TimeOut: '+yUser);
+        if(xUser!=null && yUser!=null ){
+            getCityId();
         }
-    };
-    req.send(null);
+    } , 5000);
+    
 
-    if( xUser == null || yUser == null ){
-        btnLocation.style.display = 'block';
-        navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
-        console.log(xUser);
-        console.log(yUser);
-    }else if(xUser != null && yUser != null ) {
-        btnLocation.style.display = 'none';
-        getCityId();
-    }
     
 }
 
@@ -84,6 +78,7 @@ function getCityId() {
     console.log(yUser);
     console.log(distanciaMenor);
     console.log(IDciudad);
+    return IDciudad;
 
 };
 
