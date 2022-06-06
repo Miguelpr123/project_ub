@@ -1,4 +1,4 @@
-alert('v2.3.1');
+alert('v2.3.2');
 
 ciudades = [];
 vacancies = [];
@@ -55,20 +55,7 @@ reqCiudades.onreadystatechange = function (aEvt) {
 };
 reqCiudades.send(null);
 
-//AJAX VACANCY REQUEST 
-reqVacancies = new XMLHttpRequest();
-reqVacancies.open('GET', 'https://api.hh.ru/vacancies?locale=EN', true);
-reqVacancies.onreadystatechange = function (aEvt) {
-    if (reqVacancies.readyState == 4) {
-        if(reqVacancies.status == 200){                        
-            vacancies = reqVacancies.responseText;
-            alert('vacancies request: '+vacancies);
-        }else{
-            console.log("Error loading page\n");
-        }
-    }
-};
-reqVacancies.send(null);
+
 //----------------------------------------------------------------------------
 
 
@@ -79,7 +66,7 @@ function inicioNeo(){
     city_num_i = null;
     btnLocation = document.getElementById('activate_location');
 
-    btnLocation.addEventListener('click' , ()=>{
+    /*btnLocation.addEventListener('click' , ()=>{
         navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
         setTimeout( ()=>{
             console.log('xUser dentro del TimeOut: '+xUser);
@@ -89,7 +76,7 @@ function inicioNeo(){
                 console.log('IDCity: '+IDCity);
             }
         } , 8000);
-    });
+    });*/
     
     usuarioCoords.then( res =>{
         xUser = res[0];
@@ -129,26 +116,29 @@ function getCityId() {
 };
 
 function getVacancies(CityID){
-    vac_i = [];
-    idVacancy = [];
-    vacancies = JSON.parse(vacancies);
-
-    /*for (let i = 0; i < vacancies.length; i++) {
-        for (let j = 0; j < vacancies[i].area.length; j++) {
-            if (vacancies[i].area[j].id == cityId ) {
-                vac_i[vac_i.length] = i;
-                idVacancy[idVacancy.length] = vacancies[i].id;
+    //AJAX VACANCY REQUEST 
+    reqVacancies = new XMLHttpRequest();
+    reqVacancies.open('GET', 'https://api.hh.ru/vacancies?locale=EN&area='+ CityID +', true);
+    reqVacancies.onreadystatechange = function (aEvt) {
+        if (reqVacancies.readyState == 4) {
+            if(reqVacancies.status == 200){                        
+                vacancies = reqVacancies.responseText;
+                alert('vacancies request: '+vacancies);
+            }else{
+                console.log("Error loading page\n");
             }
         }
-    }*/
+    };
+    reqVacancies.send(null);
+    
+    vacancies = JSON.parse(vacancies);
     
     alert('vacancies.length: '+vacancies.length);
+    alert('vacancies.items.length: '+vacancies.items.length);
     
     /** vacancie[ vac_i[0] ].name */
 
     alert('vacancies: '+vacancies);
-    alert('vacancies[0].name: '+vacancies[0].name);
-    alert('vacancies[ vac_i[0] ].name: '+vacancies[ vac_i[0] ].name);
 
 }
 
