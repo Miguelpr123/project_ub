@@ -1,4 +1,4 @@
-alert('v2.2.3');
+alert('v2.2.4');
 
 
 usuarioCoords = new Promise( (resolve , reject)=>{
@@ -38,33 +38,33 @@ usuarioCoords = new Promise( (resolve , reject)=>{
 
 //AJAX REQUEST -------------------------------------------------------------
 //AJAX CITY REQUEST 
-req = new XMLHttpRequest();
-req.open('GET', 'https://api.hh.ru/metro?locale=EN', true);
-req.onreadystatechange = function (aEvt) {
-    if (req.readyState == 4) {
-        if(req.status == 200){            
-            ciudades = req.responseText;
+reqCiudades = new XMLHttpRequest();
+reqCiudades.open('GET', 'https://api.hh.ru/metro?locale=EN', true);
+reqCiudades.onreadystatechange = function (aEvt) {
+    if (reqCiudades.readyState == 4) {
+        if(reqCiudades.status == 200){            
+            ciudades = reqCiudades.responseText;
         }else{
             console.log("Error loading page\n");
         }
     }
 };
-req.send(null);
+reqCiudades.send(null);
 
 //AJAX VACANCY REQUEST 
-req = new XMLHttpRequest();
-req.open('GET', ' https:api.hh.ru/vacancies?locale=EN', true);
-req.onreadystatechange = function (aEvt) {
-    if (req.readyState == 4) {
-        if(req.status == 200){                        
-            vacancies = req.responseText;
+reqVacancies = new XMLHttpRequest();
+reqVacancies.open('GET', ' https:api.hh.ru/vacancies?locale=EN', true);
+reqVacancies.onreadystatechange = function (aEvt) {
+    if (reqVacancies.readyState == 4) {
+        if(reqVacancies.status == 200){                        
+            vacancies = reqVacancies.responseText;
             alert('vacancies request: '+vacancies);
         }else{
             console.log("Error loading page\n");
         }
     }
 };
-req.send(null);
+reqVacancies.send(null);
 //----------------------------------------------------------------------------
 
 
