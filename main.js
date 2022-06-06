@@ -54,6 +54,8 @@ function iniciar(){
         if(xUser!=null && yUser!=null ){
             IDCity = getCityId();
             console.log('IDCity: '+IDCity);
+
+            mostrarMapa();
         }
     } , 8000);
     
@@ -89,8 +91,6 @@ function getCityId() {
 
 };
 
-
-
 /** ALGORITMO BUSCAR LA TERMINAL DE MENOR DISTANCIA CON RESPECTO A LA UBICACION DEL USUARIO */
 function IdTerminalDistanciaMenor( xUser , yUser , xTerminal , yTerminal , idTerminal , city_i ){
  
@@ -111,6 +111,14 @@ function IdTerminalDistanciaMenor( xUser , yUser , xTerminal , yTerminal , idTer
 
 }
 
+function mostrarMapa( lat , lng ) {
+    ymaps.ready = ()=>{
+        myMap = new ymaps.Map("map", {
+            center: [55.76, 37.64],
+            zoom: 7
+        });
+    }
+}
 
 window.addEventListener('load', iniciar, false);
 
