@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>v2.4.3 INTO HTML</title>
+    <title>v2.4.4 MAP</title>
 
     <!-- BOOTSTRAP -->
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
@@ -81,8 +81,8 @@
                                     user ongo
                                 </div>
                                 <!-- map -->
-                                <div class="col-12 col-md-6 bg-success my-2 p-5 ">
-                                    map
+                                <div class="col-12 col-md-6 bg-success my-2 p-5 center ">
+                                    <div id="map" style="width: 200px; height: 100px"></div>
                                 </div>
                                 <!-- table -->
                                 <div class="col-12 my-2 p-5 ">
@@ -110,7 +110,19 @@
     <script src="assets/js/jquery-3.5.1.min.js"></script>
 		<script src="assets/js/popper.min.js"></script>
 			<script src="assets/js/bootstrap.min.js"></script>
-                <script src="assets/js/aos.js"></script>
+                		<script src="assets/js/aos.js"></script>
+	
+					<script src="https://api-maps.yandex.ru/2.1/?apikey=65e331b9-0745-4646-8c4a-3516067d5e3d&lang=ru_RU" type="text/javascript"></script>
+
+					    <script type="text/javascript">
+						ymaps.ready(init);
+						function init(){
+						    var myMap = new ymaps.Map("map", {
+							center: [55.76, 37.64],
+							zoom: 7
+						    });
+						}
+					    </script>
 
 </body>
 </html>
