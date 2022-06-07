@@ -1,4 +1,4 @@
-alert('v2.3.9');
+alert('v2.4.0');
 
 ciudades = [];
 vacancies = [];
@@ -120,13 +120,12 @@ function getVacancies(CityID){
                 vacanciesEmployersIds = [vacancies.items.length];
 
                 alert('vacancies.items.length: '+vacancies.items.length);
+                alert('vacancies.items.employers.length: '+vacancies.items.employers.length);
 
-                for (let i = 0; i < vacancies.items.length; i++) {
-                    for (let i = 0; i < vacancies.items[i].employers.length; i++) {
-                        vacanciesEmployersIds[i] = vacancies.items[i].employers[i].id;
+                    for (let i = 0; i < vacancies.items.employers.length; i++) {
+                        vacanciesEmployersIds[i] = vacancies.items.employers[i].id;
                         
-                    }                  
-                }
+                    }  
 
                 alert('vacanciesEmployersIds[0]: '+vacanciesEmployersIds[0]);
 
