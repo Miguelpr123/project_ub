@@ -1,4 +1,4 @@
-alert('v2.5.5');
+alert('v2.5.6');
 
 ciudades = [];
 vacancies = [];
@@ -169,7 +169,7 @@ function getEmployers(vacanciesEmployersIds){
                     employers[i] =  JSON.parse( employers[i] );
                     
                     alert('employers[i] despues del Jason.parse: '+employers[i]);
-                    /*
+                    
                     //INTO HTML                    
                     divHijo = document.createElement('div');
                     divHijo.className = 'col-12 badge-pill m-2 p-3 shadow-sm bg-dark text-light d-flex ';
@@ -216,7 +216,7 @@ function getEmployers(vacanciesEmployersIds){
                     `;
                     rowContainerEmployers.appendChild(divHijo);
 
-                    */
+                    
                 }else{
                     console.log("Error loading page\n");
                 }
