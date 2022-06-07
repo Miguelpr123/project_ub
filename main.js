@@ -1,4 +1,4 @@
-alert('v2.4.8');
+alert('v2.4.9');
 
 ciudades = [];
 vacancies = [];
@@ -60,27 +60,8 @@ reqCiudades.send(null);
 
 //----------------------------------------------------------------------------
 
-
-function inicioNeo(){ 
-
-    idTerminalDistanciaMenor = 0;
-    distanciaMenor = 0;    
-    city_num_i = null;
-    rowContainerEmployers = document.getElementById('#containerEmployers');
-    rowContainerEmployerBig = document.getElementById('#rowContainerEmployerBig');
-
-    spanFail = document.createElement('span');
-    spanFail.className = 'sr-only';
-    spanFail.innerHTML = 'Loading...';
-
-    spinner = document.createElement('div');
-    spinner.id = 'spinnerLoad';
-    spinner.className = 'spinner-border text-primary';
-    spinner.setAttribute('role' , 'status' );
-    spinner.appendChild(spanFail);
-
-    rowContainerEmployers.appendChild(spinner);
-    
+function getLocalizacion(){
+        
     usuarioCoords.then( res =>{
         xUser = res[0];
         yUser = res[1];
@@ -135,8 +116,32 @@ function inicioNeo(){
             rowContainerEmployers.remove(btnBuscarLocation);
         });
         rowContainerEmployers.appendChild(btnBuscarLocation);
-        inicioNeo();
+        getLocalizacion();
     });
+}
+
+
+function inicioNeo(){ 
+
+    idTerminalDistanciaMenor = 0;
+    distanciaMenor = 0;    
+    city_num_i = null;
+    rowContainerEmployers = document.getElementById('#containerEmployers');
+    rowContainerEmployerBig = document.getElementById('#rowContainerEmployerBig');
+
+    spanFail = document.createElement('span');
+    spanFail.className = 'sr-only';
+    spanFail.innerHTML = 'Loading...';
+
+    spinner = document.createElement('div');
+    spinner.id = 'spinnerLoad';
+    spinner.className = 'spinner-border text-primary';
+    spinner.setAttribute('role' , 'status' );
+    spinner.appendChild(spanFail);
+
+    rowContainerEmployers.appendChild(spinner);
+
+    getLocalizacion();
     
 }
 
