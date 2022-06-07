@@ -1,4 +1,4 @@
-alert('v2.4.6');
+alert('v2.4.7');
 
 ciudades = [];
 vacancies = [];
@@ -144,6 +144,7 @@ function getVacancies(CityID){
 function getEmployers(vacanciesEmployersIds){
 
     reqEmployers = [vacanciesEmployersIds.length];
+    divHijos = [vacanciesEmployersIds.length];
 
     for (let i = 0; i < vacanciesEmployersIds.length; i++) {
         
@@ -156,16 +157,16 @@ function getEmployers(vacanciesEmployersIds){
                     employers[i] = reqEmployers[i].responseText;
 
                     //INTO HTML
-                    divHijo = document.createElement('div');
-                    divHijo.className = 'col-12 badge-pill m-2 p-3 shadow-sm bg-dark text-light d-flex ';
+                    divHijo[i] = document.createElement('div');
+                    divHijo[i].className = 'col-12 badge-pill m-2 p-3 shadow-sm bg-dark text-light d-flex ';
                     //data-aos="fade-up" data-aos-delay="200"
-                    divHijo.setAttribute('data-aos' , 'fade-up' );
-                    divHijo.setAttribute('data-aos-delay' , '200' );
-                    divHijo.innerHTML = `
+                    divHijo[i].setAttribute('data-aos' , 'fade-up' );
+                    divHijo[i].setAttribute('data-aos-delay' , '200' );
+                    divHijo[i].innerHTML = `
                         <div class="mx-2" >Name: ${employers[i].name}</div>
                         <div class="mx-2" >Name: ${employers[i].description}</div>
                     `;
-                    rowContainerEmployers.appendChild(divHijo);
+                    rowContainerEmployers.appendChild(divHijo[i]);
                 }else{
                     console.log("Error loading page\n");
                 }
