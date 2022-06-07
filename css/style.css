@@ -1,0 +1,111 @@
+* {
+	-webkit-box-sizing:border-box; 
+	-moz-box-sizing:border-box;
+	 box-sizing:border-box;
+    padding : 0;
+    margin : 0;
+	outline :0;
+    border:0;
+	font-family :georgia, times, sans-serif ;
+}
+
+body {
+	color:#000000;
+	background :#ffffff;
+    overflow-x: hidden;
+}
+
+.center{
+	-webkit-display :flex;
+	-moz-display :flex;
+	-o-display :flex;
+	display :flex;
+	justify-content :center;
+	align-items :center;
+}
+
+.cap {
+	background :rgb(0,0,0,0.5);
+	background :rgba(0,0,0,0.5);
+	z-index :2;
+}
+
+.transition {
+        transition :all 2s ease  ;
+}
+
+.zoom-bg {
+        transition :background-size transform 2s ease  ;
+}
+
+.zoom-bg:hover{
+        background-size :120% 120%;
+        transition : background-size 2s ease;
+}
+
+.zoom-fit{
+        transition:transform 2s ease;
+}
+
+.zoom-fit:hover{
+        transform :scale(1.25 , 1.25);
+        transition :transform 2s ease;
+}
+
+.mh{
+        -webkit-min-height :200px; 
+        -moz-min-height :200px; 
+        -o-min-height :200px; 
+        min-height :200px; 
+}
+
+.mh-md{
+        -webkit-min-height :350px; 
+        -moz-min-height :350px; 
+        -o-min-height :350px; 
+        min-height :350px; 
+}
+
+.mh-lg {
+        -webkit-min-height :500px; 
+        -moz-min-height :500px; 
+        -o-min-height :500px; 
+        min-height :500px; 
+}
+
+ul.navbar-nav > li.nav-item > a.nav-link:hover {
+        color:#fff;
+        background :#000;
+}
+
+/*-----------------------------------------------------*/
+
+
+
+
+/* ====================== RESPONSIVE  ======================== */
+
+@media (min-width :576px){        /*sm*/
+
+}
+
+@media (min-width :768px){        /*md*/
+
+}
+
+@media (min-width :991px){        /*lg*/
+
+}
+
+@media (min-width :1200px){        /*xl*/
+
+}
+
+
+/*-----------------------------------------------------*/
+
+
+
+
+
+
