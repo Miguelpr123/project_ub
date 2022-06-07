@@ -158,7 +158,6 @@ function getEmployers(vacanciesEmployersIds){
 
     reqEmployers = [vacanciesEmployersIds.length];
     divEmployer = null;
-    rowContainerEmployers = document.getElementById('containerEmployers');
 
     for (let i = 0; i < vacanciesEmployersIds.length; i++) {
     
@@ -175,7 +174,6 @@ function getEmployers(vacanciesEmployersIds){
                     //INTO HTML                    
                     divHijo = document.createElement('div');
                     divHijo.className = 'col-12 badge-pill m-2 p-3 shadow-sm bg-dark text-light d-flex ';
-                    //aos="fade-up" data-aos-delay="200"
                     divHijo.setAttribute('data-aos' , 'fade-up' );
                     divHijo.setAttribute('data-aos-delay' , '200' );
                     divHijo.addEventListener('click' , ()=>{
