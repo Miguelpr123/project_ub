@@ -1,7 +1,8 @@
-alert('v2.3.5');
+alert('v2.3.7');
 
 ciudades = [];
 vacancies = [];
+employers = [];
 xUser = null;
 yUser = null;
 
@@ -105,6 +106,8 @@ function getCityId() {
 };
 
 function getVacancies(CityID){
+    vacanciesEmployersIds = [];
+
     //AJAX VACANCY REQUEST 
     reqVacancies = new XMLHttpRequest();
     reqVacancies.open('GET', 'https://api.hh.ru/vacancies?locale=EN&area='+ CityID , true);
@@ -120,7 +123,9 @@ function getVacancies(CityID){
     };
     reqVacancies.send(null);
     
-    vacancies = JSON.parse(vacancies);
+    // vacancies = JSON.parse(vacancies);
+
+    alert('type of vacancies: '+ typeof(vacancies) );
     
     alert('vacancies.length: '+vacancies.length);
     alert('vacancies.items.length: '+vacancies.items.length);
@@ -130,6 +135,35 @@ function getVacancies(CityID){
     alert('vacancies: '+vacancies);
 
 }
+
+
+function getEmployers(vacanciesEmployersIds){
+
+    reqEmployers = [vacanciesEmployersIds];
+
+    for (let i = 0; i < vacanciesEmployersIds.length; i++) {
+        
+        //AJAX EMPLOYERS REQUEST 
+        reqEmployers[i] = new XMLHttpRequest();
+        reqEmployers[i].open('GET', 'https://api.hh.ru/employers/'+vacanciesEmployersIds[i]+'?locale=EN' , true);
+        reqEmployers[i].onreadystatechange = function (aEvt) {
+            if (reqEmployers[i].readyState == 4) {
+                if(reqEmployers[i].status == 200){                        
+                    employers[i] = reqEmployers[i].responseText;
+                    alert('employers request: '+employers[i]);
+                }else{
+                    console.log("Error loading page\n");
+                }
+            }
+        };
+        reqEmployers[i].send(null);
+
+    }
+    
+    alert('employers: '+employers);
+
+}
+
 
 /** ALGORITMO BUSCAR LA TERMINAL DE MENOR DISTANCIA CON RESPECTO A LA UBICACION DEL USUARIO */
 function IdTerminalDistanciaMenor( xUser , yUser , xTerminal , yTerminal , idTerminal , city_i ){
