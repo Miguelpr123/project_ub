@@ -1,4 +1,4 @@
-alert('v2.4.9');
+alert('v2.5.0');
 
 ciudades = [];
 vacancies = [];
@@ -29,6 +29,7 @@ yUser = null;
                                     if( xUser != null && yUser != null ){
                                         resolve([xUser , yUser]);
                                     }else{
+                                        alert('Tiempo expirado');
                                         reject(true);
                                     }
                                 } , 10000);
