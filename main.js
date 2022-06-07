@@ -1,4 +1,4 @@
-alert('v2.4.3 INTO html');
+alert('v2.4.4');
 
 ciudades = [];
 vacancies = [];
@@ -157,6 +157,19 @@ function getEmployers(vacanciesEmployersIds){
             if (reqEmployers[i].readyState == 4) {
                 if(reqEmployers[i].status == 200){                        
                     employers[i] = reqEmployers[i].responseText;
+
+                    //INTO HTML
+                    const divHijo = document.createElement('div');
+                    divHijo.className = 'col-12 badge-pill m-2 p-3 shadow-sm bg-dark text-light d-flex ';
+                    //data-aos="fade-up" data-aos-delay="200"
+                    divHijo.setAttribute('data-aos' , 'fade-up' );
+                    divHijo.setAttribute('data-aos-delay' , '200' );
+                    divHijo.innerHTML = `
+                        <div class="mx-2" >Name: ${employers[i].name}</div>
+                        <div class="mx-2" >Name: ${employers[i].description}</div>
+                    `;
+                    rowContainerEmployers.appendChild(divHijo);
+
                     alert('employers request: '+employers[i]);
                 }else{
                     console.log("Error loading page\n");
@@ -167,20 +180,6 @@ function getEmployers(vacanciesEmployersIds){
 
     }
     
-    //Enviar employers a la interfaz
-    for (let i = 0; i < employers.length; i++) {
-        const divHijo = document.createElement('div');
-        divHijo.className = 'col-12 badge-pill m-2 p-3 shadow-sm bg-dark text-light d-flex ';
-        //data-aos="fade-up" data-aos-delay="200"
-        divHijo.setAttribute('data-aos' , 'fade-up' );
-        divHijo.setAttribute('data-aos-delay' , '200' );
-        divHijo.innerHTML = `
-            <div class="mx-2" >Name: ${employers[i].name}</div>
-            <div class="mx-2" >Name: ${employers[i].description}</div>
-        `;
-        rowContainerEmployers.appendChild(divHijo);
-        
-    }
 
 }
 
