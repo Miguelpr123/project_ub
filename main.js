@@ -1,4 +1,4 @@
-alert('v2.4.2');
+alert('v2.4.3');
 
 ciudades = [];
 vacancies = [];
