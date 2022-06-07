@@ -1,4 +1,4 @@
-alert('v2.5.0');
+alert('v2.5.1');
 
 ciudades = [];
 vacancies = [];
@@ -141,6 +141,8 @@ function inicioNeo(){
     spinner.appendChild(spanFail);
 
     rowContainerEmployers.appendChild(spinner);
+    
+    alert(rowContainerEmployers);
 
     getLocalizacion();
     
