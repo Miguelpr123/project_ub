@@ -1,4 +1,4 @@
-alert('v2.6.1');
+alert('v2.6.2');
 
 ciudades = [];
 vacancies = [];
@@ -206,6 +206,7 @@ function getEmployers(vacanciesEmployersIds){
                         rowContainerEmployerBig.appendChild(divEmployer);
                     } );
                     divHijo.innerHTML = 'efe';
+                    rowContainerEmployers.innerHTML = 'eef';
                     rowContainerEmployers.appendChild(divHijo);
 
                     
