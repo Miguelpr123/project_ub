@@ -1,4 +1,4 @@
-alert('v2.5.7');
+alert('v2.5.8');
 
 ciudades = [];
 vacancies = [];
@@ -168,12 +168,8 @@ function getEmployers(vacanciesEmployersIds){
             if (reqEmployers[i].readyState == 4) {
                 if(reqEmployers[i].status == 200){                        
                     employers[i] = reqEmployers[i].responseText;
-                    
-                    alert('employers[i]: '+employers[i]);
 
                     employers[i] =  JSON.parse( employers[i] );
-                    
-                    alert('employers[i] despues del Jason.parse: '+employers[i]);
                     
                     //INTO HTML                    
                     divHijo = document.createElement('div');
@@ -181,6 +177,7 @@ function getEmployers(vacanciesEmployersIds){
                     //aos="fade-up" data-aos-delay="200"
                     divHijo.setAttribute('data-aos' , 'fade-up' );
                     divHijo.setAttribute('data-aos-delay' , '200' );
+                    alert('divHijo antes del Listener'+divHijo);
                     divHijo.addEventListener('click' , ()=>{
                         if(divEmployer!=null){
                             rowContainerEmployerBig.remove(divEmployer);
@@ -210,6 +207,7 @@ function getEmployers(vacanciesEmployersIds){
                         `;
                         rowContainerEmployerBig.appendChild(divEmployer);
                     } );
+                    alert('divHijo despues del Listener'+divHijo);
                     divHijo.innerHTML = `
                         <div>
                             <svg class="svg-icon" viewBox="0 0 20 20" style="width: 30px; height:30px;" >
@@ -219,6 +217,7 @@ function getEmployers(vacanciesEmployersIds){
                         <div class="mx-2" > ${vacancies.items[i].name}</div>
                         <div class="mx-2" >${vacancies.items[i].department}</div>
                     `;
+                    alert('rowContainerEmployers'+rowContainerEmployers);
                     rowContainerEmployers.appendChild(divHijo);
 
                     
