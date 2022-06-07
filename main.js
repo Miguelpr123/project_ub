@@ -1,4 +1,4 @@
-alert('v2.4.4');
+alert('v2.4.5');
 
 ciudades = [];
 vacancies = [];
@@ -138,9 +138,6 @@ function getVacancies(CityID){
         }
     };
     reqVacancies.send(null);
-    
-    
-
 }
 
 
@@ -169,8 +166,6 @@ function getEmployers(vacanciesEmployersIds){
                         <div class="mx-2" >Name: ${employers[i].description}</div>
                     `;
                     rowContainerEmployers.appendChild(divHijo);
-
-                    alert('employers request: '+employers[i]);
                 }else{
                     console.log("Error loading page\n");
                 }
