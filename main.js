@@ -1,4 +1,4 @@
-alert('v2.5.2');
+alert('v2.5.3');
 
 ciudades = [];
 vacancies = [];
@@ -163,8 +163,12 @@ function getEmployers(vacanciesEmployersIds){
             if (reqEmployers[i].readyState == 4) {
                 if(reqEmployers[i].status == 200){                        
                     employers[i] = reqEmployers[i].responseText;
+                    
+                    alert('employers[i]: '+employers[i]);
 
                     employers[i] =  JSON.parse( employers[i] );
+                    
+                    alert('employers[i] despues del Jason.parse: '+employers[i]);
 
                     //INTO HTML                    
                     divHijo = document.createElement('div');
