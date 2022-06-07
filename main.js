@@ -1,4 +1,4 @@
-alert('v2.3.7');
+alert('v2.3.8');
 
 ciudades = [];
 vacancies = [];
@@ -116,6 +116,17 @@ function getVacancies(CityID){
             if(reqVacancies.status == 200){                        
                 vacancies = reqVacancies.responseText;
                 alert('vacancies request: '+vacancies);
+
+                vacancies = JSON.parse(vacancies);
+
+                alert('type of vacancies: '+ typeof(vacancies) );
+                
+                alert('vacancies.length: '+vacancies.length);
+                alert('vacancies.items.length: '+vacancies.items.length);
+                
+                /** vacancie[ vac_i[0] ].name */
+
+                alert('vacancies: '+vacancies);
             }else{
                 console.log("Error loading page\n");
             }
@@ -123,16 +134,7 @@ function getVacancies(CityID){
     };
     reqVacancies.send(null);
     
-    // vacancies = JSON.parse(vacancies);
-
-    alert('type of vacancies: '+ typeof(vacancies) );
     
-    alert('vacancies.length: '+vacancies.length);
-    alert('vacancies.items.length: '+vacancies.items.length);
-    
-    /** vacancie[ vac_i[0] ].name */
-
-    alert('vacancies: '+vacancies);
 
 }
 
