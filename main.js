@@ -67,6 +67,7 @@ function inicioNeo(){
     idTerminalDistanciaMenor = 0;
     distanciaMenor = 0;    
     city_num_i = null;
+    rowContainerEmployers = document.getElementById('#containerEmployers');
     
     usuarioCoords.then( res =>{
         xUser = res[0];
@@ -164,6 +165,21 @@ function getEmployers(vacanciesEmployersIds){
         };
         reqEmployers[i].send(null);
 
+    }
+    
+    //Enviar employers a la interfaz
+    for (let i = 0; i < employers.length; i++) {
+        const divHijo = document.createElement('div');
+        divHijo.className = 'col-12 badge-pill m-2 p-3 shadow-sm bg-dark text-light d-flex ';
+        //data-aos="fade-up" data-aos-delay="200"
+        divHijo.setAttribute('data-aos' , 'fade-up' );
+        divHijo.setAttribute('data-aos-delay' , '200' );
+        divHijo.innerHTML = `
+            <div class="mx-2" >Name: ${employers[i].name}</div>
+            <div class="mx-2" >Name: ${employers[i].description}</div>
+        `;
+        rowContainerEmployers.appendChild(divHijo);
+        
     }
 
 }
