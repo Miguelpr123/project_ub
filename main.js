@@ -1,4 +1,4 @@
-alert('v2.4.5');
+alert('v2.4.6');
 
 ciudades = [];
 vacancies = [];
@@ -156,7 +156,7 @@ function getEmployers(vacanciesEmployersIds){
                     employers[i] = reqEmployers[i].responseText;
 
                     //INTO HTML
-                    const divHijo = document.createElement('div');
+                    divHijo = document.createElement('div');
                     divHijo.className = 'col-12 badge-pill m-2 p-3 shadow-sm bg-dark text-light d-flex ';
                     //data-aos="fade-up" data-aos-delay="200"
                     divHijo.setAttribute('data-aos' , 'fade-up' );
