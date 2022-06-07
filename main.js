@@ -1,4 +1,4 @@
-alert('v2.5.6');
+alert('v2.5.7');
 
 ciudades = [];
 vacancies = [];
@@ -71,7 +71,8 @@ function getLocalizacion(){
         CityID = getCityId();
         getVacancies(CityID);
     }, rej=>{
-        rowContainerEmployers.remove(spinner);
+        if(rej){
+            rowContainerEmployers.remove(spinner);
 
         btnBuscarLocation = document.createElement('button');
         btnBuscarLocation.type='button';
@@ -118,7 +119,11 @@ function getLocalizacion(){
         });
         rowContainerEmployers.appendChild(btnBuscarLocation);
         getLocalizacion();
+        }
+        
+        
     });
+    
 }
 
 
