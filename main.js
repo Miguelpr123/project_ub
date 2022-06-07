@@ -1,4 +1,4 @@
-alert('v2.3.8');
+alert('v2.3.9');
 
 ciudades = [];
 vacancies = [];
@@ -50,7 +50,7 @@ reqCiudades.onreadystatechange = function (aEvt) {
     if (reqCiudades.readyState == 4) {
         if(reqCiudades.status == 200){            
             ciudades = reqCiudades.responseText;
-            alert('ciudades request: '+ciudades);
+            ciudades = JSON.parse(ciudades);
         }else{
             console.log("Error loading page\n");
         }
@@ -80,7 +80,6 @@ function inicioNeo(){
 
 function getCityId() {
 
-    ciudades = JSON.parse(ciudades);
     //RECORRER LOS DATOS 
     for (let i = 0; i < ciudades.length; i++) {
                 
@@ -106,7 +105,7 @@ function getCityId() {
 };
 
 function getVacancies(CityID){
-    vacanciesEmployersIds = [];
+    
 
     //AJAX VACANCY REQUEST 
     reqVacancies = new XMLHttpRequest();
@@ -115,18 +114,22 @@ function getVacancies(CityID){
         if (reqVacancies.readyState == 4) {
             if(reqVacancies.status == 200){                        
                 vacancies = reqVacancies.responseText;
-                alert('vacancies request: '+vacancies);
 
                 vacancies = JSON.parse(vacancies);
 
-                alert('type of vacancies: '+ typeof(vacancies) );
-                
-                alert('vacancies.length: '+vacancies.length);
-                alert('vacancies.items.length: '+vacancies.items.length);
-                
-                /** vacancie[ vac_i[0] ].name */
+                vacanciesEmployersIds = [vacancies.items.length];
 
-                alert('vacancies: '+vacancies);
+                alert('vacancies.items.length: '+vacancies.items.length);
+
+                for (let i = 0; i < vacancies.items.length; i++) {
+                    for (let i = 0; i < vacancies.items[i].employers.length; i++) {
+                        vacanciesEmployersIds[i] = vacancies.items[i].employers[i].id;
+                        
+                    }                  
+                }
+
+                alert('vacanciesEmployersIds[0]: '+vacanciesEmployersIds[0]);
+
             }else{
                 console.log("Error loading page\n");
             }
