@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>v2.4.4 MAP</title>
+    <title>v2.4.5</title>
 
     <!-- BOOTSTRAP -->
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
@@ -82,7 +82,7 @@
                                 </div>
                                 <!-- map -->
                                 <div class="col-12 col-md-6 bg-success my-2 p-5 center ">
-                                    <div id="map" style="width: 200px; height: 100px"></div>
+                                    <div id="map" style="width: 600px; height: 400px"></div>
                                 </div>
                                 <!-- table -->
                                 <div class="col-12 my-2 p-5 ">
@@ -118,7 +118,7 @@
 						ymaps.ready(init);
 						function init(){
 						    var myMap = new ymaps.Map("map", {
-							center: [55.76, 37.64],
+							center: [ xUser , yUser ],
 							zoom: 7
 						    });
 						}
