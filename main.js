@@ -1,4 +1,4 @@
-alert('v2.5.3');
+alert('v2.5.4');
 
 ciudades = [];
 vacancies = [];
@@ -70,7 +70,7 @@ function getLocalizacion(){
         rowContainerEmployers.remove(spinner);
         CityID = getCityId();
         getVacancies(CityID);
-    }, ()=>{
+    }, rej=>{
         rowContainerEmployers.remove(spinner);
 
         btnBuscarLocation = document.createElement('button');
