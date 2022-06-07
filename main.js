@@ -1,4 +1,4 @@
-alert('v2.5.1');
+alert('v2.5.2');
 
 ciudades = [];
 vacancies = [];
@@ -127,8 +127,8 @@ function inicioNeo(){
     idTerminalDistanciaMenor = 0;
     distanciaMenor = 0;    
     city_num_i = null;
-    rowContainerEmployers = document.getElementById('#containerEmployers');
-    rowContainerEmployerBig = document.getElementById('#rowContainerEmployerBig');
+    rowContainerEmployers = document.getElementById('containerEmployers');
+    rowContainerEmployerBig = document.getElementById('rowContainerEmployerBig');
 
     spanFail = document.createElement('span');
     spanFail.className = 'sr-only';
