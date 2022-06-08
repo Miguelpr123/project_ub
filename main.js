@@ -1,4 +1,4 @@
-alert('v2.6.3');
+alert('v2.6.4');
 
 ciudades = [];
 vacancies = [];
@@ -71,6 +71,8 @@ function getLocalizacion(){
         CityID = getCityId();
         getVacancies(CityID);
     
+    } , rej=>{
+        console.log('ubicacion no cargada');
     });
     
 }
