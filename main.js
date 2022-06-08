@@ -1,4 +1,4 @@
-alert('v2.6.2');
+alert('v2.6.3');
 
 ciudades = [];
 vacancies = [];
@@ -29,7 +29,7 @@ yUser = null;
                                     if( xUser != null && yUser != null ){
                                         resolve([xUser , yUser]);
                                     }else{
-                                        alert('Tiempo expirado');
+                                        alert('Tiempo expirado para encontrar la ubicacion');
                                         reject(true);
                                     }
                                 } , 10000);
@@ -62,7 +62,7 @@ reqCiudades.send(null);
 //----------------------------------------------------------------------------
 
 function getLocalizacion(){
-        
+    
     usuarioCoords.then( res =>{
         xUser = res[0];
         yUser = res[1];
@@ -70,58 +70,7 @@ function getLocalizacion(){
         rowContainerEmployers.remove(spinner);
         CityID = getCityId();
         getVacancies(CityID);
-    }, rej=>{
-        if(rej){
-            rowContainerEmployers.remove(spinner);
-
-        btnBuscarLocation = document.createElement('button');
-        btnBuscarLocation.type='button';
-        btnBuscarLocation.className='btn btn-info btn-lg';
-        btnBuscarLocation.innerHTML = 'Reintentar';
-        btnBuscarLocation.addEventListener('click' , ()=>{
-            usuarioCoords = new Promise( (resolve , reject)=>{
-
-                xUser=null;
-                yUser=null;
-        
-                navigator.geolocation.getCurrentPosition( posicion=>{xUser=posicion.coords.latitude; yUser=posicion.coords.longitude;} , error=>{alert('Error: '+error.code+' '+error.message);} );
-        
-                setTimeout( ()=>{
-                    if( xUser != null && yUser != null ){
-                        resolve([xUser , yUser]);
-                    }else{
-                        setTimeout( ()=>{
-                            if( xUser != null && yUser != null ){
-                                resolve([xUser , yUser]);
-                            }else{
-                                setTimeout( ()=>{
-                                    if( xUser != null && yUser != null ){
-                                        resolve([xUser , yUser]);
-                                    }else{
-                                        setTimeout( ()=>{
-                                            if( xUser != null && yUser != null ){
-                                                resolve([xUser , yUser]);
-                                            }else{
-                                                reject(true);
-                                            }
-                                        } , 10000);
-                                    }
-                                } , 3000);
-                            }
-                        } , 3000);
-                    }
-                } , 3000);
-        
-            });
-
-            rowContainerEmployers.appendChild(spinner);
-            rowContainerEmployers.remove(btnBuscarLocation);
-        });
-        rowContainerEmployers.appendChild(btnBuscarLocation);
-        getLocalizacion();
-        }
-        
-        
+    
     });
     
 }
@@ -135,20 +84,6 @@ function inicioNeo(){
     rowContainerEmployers = document.getElementById('containerEmployers');
     rowContainerEmployerBig = document.getElementById('rowContainerEmployerBig');
 
-    spanFail = document.createElement('span');
-    spanFail.className = 'sr-only';
-    spanFail.innerHTML = 'Loading...';
-
-    spinner = document.createElement('div');
-    spinner.id = 'spinnerLoad';
-    spinner.className = 'spinner-border text-primary';
-    spinner.setAttribute('role' , 'status' );
-    spinner.appendChild(spanFail);
-
-    rowContainerEmployers.appendChild(spinner);
-    
-    alert(rowContainerEmployers);
-
     getLocalizacion();
     
 }
@@ -158,8 +93,11 @@ function getEmployers(vacanciesEmployersIds){
 
     reqEmployers = [vacanciesEmployersIds.length];
     divEmployer = null;
+    divHijo = [vacanciesEmployersIds.length];
 
     for (let i = 0; i < vacanciesEmployersIds.length; i++) {
+
+        
     
         //AJAX EMPLOYERS REQUEST 
         reqEmployers[i] = new XMLHttpRequest();
@@ -171,18 +109,16 @@ function getEmployers(vacanciesEmployersIds){
 
                     employers[i] =  JSON.parse( employers[i] );
                     
-                    //INTO HTML                    
-                    divHijo = document.createElement('div');
-                    divHijo.className = 'col-12 badge-pill m-2 p-3 shadow-sm bg-dark text-light d-flex ';
-                    divHijo.setAttribute('data-aos' , 'fade-up' );
-                    divHijo.setAttribute('data-aos-delay' , '200' );
-                    divHijo.addEventListener('click' , ()=>{
-                        if(divEmployer!=null){
-                            rowContainerEmployerBig.remove(divEmployer);
-                        }
-                        //employer big
-                        divEmployer = document.createElement('div');
-                        divEmployer.innerHTML = `                    
+                    divHijo[i] = document.createElement('div');
+                    divHijo[i].className = 'col-12 badge-pill m-2 p-3 shadow-sm bg-dark text-light d-flex ';
+                    divHijo[i].setAttribute('data-aos' , 'fade-up' );
+                    divHijo[i].setAttribute('data-aos-delay' , '200' );
+                    divHijo[i].innerHTML = 'efe';
+                    divHijo[i].setAttribute( 'onclick' , `
+                        if(divEmployer==null){ 
+                            divEmployer = document.createElement("div"); 
+                        } 
+                        divEmployer.innerHTML = \`                 
                             <div class="col-12 col-md-4 rounded m-0 p-0" >
                                 <img src="${employers[i].site_url}" class="w-100 m-0 rounded" style="transform:translate(-15px , -15px ) ;" alt="">
                             </div>
@@ -198,17 +134,12 @@ function getEmployers(vacanciesEmployersIds){
                             <div class="col-12 my-2" >
                                 <div class="d-flex justify-content-between" >
                                     <div class="badge-pill badge-info " >Trusted: ${ employers[i].name }</div>
-                                    <div>ef</div>
                                 </div>
                             </div>
-
-                        `;
-                        rowContainerEmployerBig.appendChild(divEmployer);
-                    } );
-                    divHijo.innerHTML = 'efe';
-                    rowContainerEmployers.innerHTML = 'eef';
-                    rowContainerEmployers.appendChild(divHijo);
-
+                        \`; 
+                        rowContainerEmployerBig.appendChild(divEmployer); 
+                    `);
+                    rowContainerEmployers.appendChild(divHijo[i]);
                     
                 }else{
                     console.log("Error loading page\n");
@@ -216,8 +147,10 @@ function getEmployers(vacanciesEmployersIds){
             }
         };
         reqEmployers[i].send(null);
+        //FIN AJAX EMPLOYERS REQUEST 
 
     }
+    
 
 }
 
