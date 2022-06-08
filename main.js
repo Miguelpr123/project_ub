@@ -1,4 +1,4 @@
-alert('v2.6.4');
+alert('v2.6.6');
 
 ciudades = [];
 vacancies = [];
@@ -115,7 +115,10 @@ function getEmployers(vacanciesEmployersIds){
                     divHijo[i].className = 'col-12 badge-pill m-2 p-3 shadow-sm bg-dark text-light d-flex ';
                     divHijo[i].setAttribute('data-aos' , 'fade-up' );
                     divHijo[i].setAttribute('data-aos-delay' , '200' );
-                    divHijo[i].innerHTML = 'efe';
+                    divHijo[i].innerHTML = `
+                        <div class="mx-2" >Name: ${vacancies.items[i].name} </div>
+                        <div class="mx-2" >Department: ${vacancies.items[i].department} </div>
+                    `;
                     divHijo[i].setAttribute( 'onclick' , `
                         if(divEmployer==null){ 
                             divEmployer = document.createElement("div"); 
