@@ -1,4 +1,4 @@
-alert('v2.6.6');
+alert('v2.6.7');
 
 ciudades = [];
 vacancies = [];
@@ -29,10 +29,22 @@ yUser = null;
                                     if( xUser != null && yUser != null ){
                                         resolve([xUser , yUser]);
                                     }else{
-                                        alert('Tiempo expirado para encontrar la ubicacion');
-                                        reject(true);
+                                        setTimeout( ()=>{
+                                            if( xUser != null && yUser != null ){
+                                                resolve([xUser , yUser]);
+                                            }else{
+                                                setTimeout( ()=>{
+                                                    if( xUser != null && yUser != null ){
+                                                        resolve([xUser , yUser]);
+                                                    }else{
+                                                        alert('Tiempo expirado para encontrar la ubicacion');
+                                                        reject(true);
+                                                    }
+                                                } , 3000);
+                                            }
+                                        } , 3000);
                                     }
-                                } , 10000);
+                                } , 3000);
                             }
                         } , 3000);
                     }
