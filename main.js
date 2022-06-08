@@ -1,4 +1,4 @@
-alert('v2.6.7');
+alert('v2.6.8');
 
 ciudades = [];
 vacancies = [];
@@ -79,7 +79,6 @@ function getLocalizacion(){
         xUser = res[0];
         yUser = res[1];
         
-        rowContainerEmployers.remove(spinner);
         CityID = getCityId();
         getVacancies(CityID);
     
