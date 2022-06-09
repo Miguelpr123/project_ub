@@ -1,4 +1,4 @@
-alert('v2.7.4');
+alert('v2.7.5');
 
 ciudades = [];
 vacancies = [];
@@ -187,6 +187,10 @@ function getEmployers(vacanciesEmployersIds){
         };
         reqEmployers[i].send(null);
         //FIN AJAX EMPLOYERS REQUEST 
+    
+        if(i==vacanciesEmployersIds.length-1){
+            spinner.style.display = 'none';
+        }
         
     }
     
