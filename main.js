@@ -1,4 +1,4 @@
-alert('v2.8.6');
+alert('v2.8.7');
 
 ciudades = [];
 vacancies = [];
@@ -124,7 +124,7 @@ function getEmployers(vacanciesEmployersIds){
                     employers[i] =  JSON.parse( employers[i] );                    
                     
                     divHijo[i] = document.createElement('div');                    
-                    divHijo[i].className = 'col-12 col-md-5 rounded m-2 p-3 shadow-lg bg-dark text-light d-flex ';
+                    divHijo[i].className = 'col-12 col-md-5  m-2 p-3  d-flex ';
                     divHijo[i].setAttribute('data-aos' , 'fade-up' );
                     divHijo[i].setAttribute('data-aos-delay' , '200' );
                     
@@ -139,25 +139,31 @@ function getEmployers(vacanciesEmployersIds){
                     divHijo[i].innerHTML = `
                     
                             <div class="container-fluid" >
-                                <div class="row" >                                    
-                                    <div class="col-12 col-md-4 center" >
-                                        <img src="${imagen}" class="rounded" style="max-width:100%;" alt='No Image' >
-                                    </div>
-                                    <div class="col-12 col-md-5 " >
-                                        <div class="mx-2" >${nombre} </div>
-                                    </div>
-                                    <div class="col-12 col-md-3 d-flex flex-column" >                                        
-                                        <div class="mx-2" >From: ${Sfrom} to ${Sto}  </div>
-                                        <span class="mx-2 text-muted" >${Scurrency}</span>
-                                    </div>
-                                    <div class="col-12 " >
-                                        <div class="d-flex flex-column" >
-                                            <h6>Requeriments: </h6>
-                                            <p>${requirement}</p>
-                                        </div>
-                                        <div class="d-flex flex-column" >
-                                            <h6>Responsabilities: </h6>
-                                            <p>${requirement}</p>
+                                <div class="row" >
+                                    <div class="container-fluid col-12 rounded shadow-lg bg-dark text-light " >
+                                        <div class="row" >
+                                        
+                                            <div class="col-12 col-md-4 center" >
+                                                <img src="${imagen}" class="rounded" style="max-width:100%;" alt='No Image' >
+                                            </div>
+                                            <div class="col-12 col-md-5 " >
+                                                <div class="mx-2" >${nombre} </div>
+                                            </div>
+                                            <div class="col-12 col-md-3 d-flex flex-column" >                                        
+                                                <div class="mx-2" >From: ${Sfrom} to ${Sto}  </div>
+                                                <span class="mx-2 text-muted" >${Scurrency}</span>
+                                            </div>
+                                            <div class="col-12 " >
+                                                <div class="d-flex flex-column" >
+                                                    <h6>Requeriments: </h6>
+                                                    <p>${requirement}</p>
+                                                </div>
+                                                <div class="d-flex flex-column" >
+                                                    <h6>Responsabilities: </h6>
+                                                    <p>${requirement}</p>
+                                                </div>
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
