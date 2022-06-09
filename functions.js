@@ -20,7 +20,6 @@ function getCityId() {
 
     }
     IDciudad = ciudades[city_num_i].id;
-    alert('IDciudad: '+IDciudad);
     return IDciudad;
 
 };
@@ -42,15 +41,11 @@ function getVacancies(CityID){
 
                 vacanciesEmployersIds = [vacancies.items.length];
 
-                alert('vacancies.items.length: '+vacancies.items.length);
-
                 for (let i = 0; i <  vacancies.items.length; i++) {
 
                     vacanciesEmployersIds[i] = vacancies.items[i].employer.id;
                         
                 }
-
-                alert('vacanciesEmployersIds: '+vacanciesEmployersIds);
 
                 getEmployers(vacanciesEmployersIds);
 
