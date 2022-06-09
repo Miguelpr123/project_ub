@@ -1,4 +1,4 @@
-alert('v2.7.6');
+alert('v2.7.7');
 
 ciudades = [];
 vacancies = [];
@@ -139,7 +139,7 @@ function getEmployers(vacanciesEmployersIds){
                             <div class="container-fluid" >
                                 <div class="row" >
                                     <div class="col-12 col-md-4" >
-                                        <img src="${vacancies.items[i].employer.logo_urls.240}" class="rounded" style="max-width:100%;" >
+                                        <img src="${vacancies.items[i].employer.logo_urls.original}" class="rounded" style="max-width:100%;" >
                                     </div>
                                     <div class="col-12 col-md-5 " >
                                         <div class="mx-2" >Name: ${vacancies.items[i].name} </div>
