@@ -1,4 +1,4 @@
-alert('v2.9.6');
+alert('v2.9.7');
 
 ciudades = [];
 vacancies = [];
@@ -130,9 +130,9 @@ function getEmployers(vacanciesEmployersIds){
                     if(vacancies.items[i].name!=null) {nombre = vacancies.items[i].name} else{ nombre=''} 
                     if(vacancies.items[i].salary.from!=null){ Sfrom = vacancies.items[i].salary.from} else{ Sfrom='-' }
                     if(vacancies.items[i].salary.to!=null){ Sto = vacancies.items[i].salary.to} else{ Sto='-' }
-                    if(vacancies.items[i].salary.currency!=null){ Scurrency = vacancies.items[i].salary.currency} else{ Scurrency='' }
-                    if(vacancies.items[i].snippet.requirement!=null){ requirement = vacancies.items[i].snippet.requirement} else{ requirement='' }
-                    if(vacancies.items[i].snippet.responsability!=null){ responsability = vacancies.items[i].snippet.responsability} else{ responsability='' }
+                    if(vacancies.items[i].salary.currency!=null){ Scurrency = vacancies.items[i].salary.currency} else{ Scurrency='-' }
+                    if(vacancies.items[i].snippet.requirement!=null){ requirement = vacancies.items[i].snippet.requirement} else{ requirement='-' }
+                    if(vacancies.items[i].snippet.responsability!=null){ responsability = vacancies.items[i].snippet.responsability} else{ responsability='-' }
                     
                     divHijo[i].innerHTML = `
                     
