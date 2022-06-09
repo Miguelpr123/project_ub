@@ -1,4 +1,4 @@
-alert('v2.8.1');
+alert('v2.8.2');
 
 ciudades = [];
 vacancies = [];
@@ -137,6 +137,7 @@ function getEmployers(vacanciesEmployersIds){
                     divHijo[i].setAttribute('data-aos' , 'fade-up' );
                     divHijo[i].setAttribute('data-aos-delay' , '200' );
                     
+                    if(vacancies.items[i].employer.logo_urls.original!=null){ imagen = vacancies.items[i].employer.logo_urls.original} else{ imagen='' }
                     if(vacancies.items[i].name!=null) {nombre = vacancies.items[i].name} else{ nombre=''} 
                     if(vacancies.items[i].salary.from!=null){ Sfrom = vacancies.items[i].salary.from} else{ Sfrom='' }
                     if(vacancies.items[i].salary.to!=null){ Sto = vacancies.items[i].salary.to} else{ Sto='' }
@@ -145,8 +146,7 @@ function getEmployers(vacanciesEmployersIds){
                     divHijo[i].innerHTML = `
                     
                             <div class="container-fluid" >
-                                <div class="row" >
-                                    ${ if(vacancies.items[i].employer.logo_urls.original!=null) imagen = vacancies.items[i].employer.logo_urls.original else imagen='' }
+                                <div class="row" >                                    
                                     <div class="col-12 col-md-4" >
                                         <img src="${imagen}" class="rounded" style="max-width:100%;" alt='No Image' >
                                     </div>
@@ -161,26 +161,32 @@ function getEmployers(vacanciesEmployersIds){
                             </div>
                         
                     `;
+                    
+                    if(employers[i].type!=null) {employerType = employers[i].type} else{ employerType=''} 
+                    if(employers[i].description !=null) {employerDesc = employers[i].description } else{ employerDesc=''} 
+                    if(employers[i].trusted !=null) {employedTrusted = employers[i].trusted  } else{ employedTrusted=''} 
+                    
+                    
                     divHijo[i].setAttribute( 'onclick' , `
                         if(divEmployer==null){ 
                             divEmployer = document.createElement("div"); 
                         } 
                         divEmployer.innerHTML = \`                 
                             <div class="col-12 col-md-4 rounded m-0 p-0" >
-                                <img src="${employers[i].site_url}" class="w-100 m-0 rounded" style="transform:translate(-15px , -15px ) ;" alt="">
+                                <img src="${imagen}" class="w-100 m-0 rounded" style="transform:translate(-15px , -15px ) ;" alt="">
                             </div>
                             <div class="col-12 col-md-8 py-2">
                                 <div class="d-flex flex-column" >
                                     <h4>${ employers[i].name }</h4>
-                                    <div class="text-muted" ><em>${ employers[i].type }</em></div>
+                                    <div class="text-muted" ><em>${ employerType }</em></div>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <p class=" text-justify " >${ employers[i].description }</p>
+                                <p class=" text-justify " >${ employerDesc }</p>
                             </div>
                             <div class="col-12 my-2" >
                                 <div class="d-flex justify-content-between" >
-                                    <div class="badge-pill badge-info " >Trusted: ${ employers[i].name }</div>
+                                    <div class="badge-pill badge-info " >Trusted: ${ employedTrusted }</div>
                                 </div>
                             </div>
                         \`; 
