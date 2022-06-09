@@ -1,4 +1,4 @@
-alert('v2.8.7');
+alert('v2.8.8');
 
 ciudades = [];
 vacancies = [];
@@ -140,31 +140,35 @@ function getEmployers(vacanciesEmployersIds){
                     
                             <div class="container-fluid" >
                                 <div class="row" >
-                                    <div class="container-fluid col-12 rounded shadow-lg bg-dark text-light " >
-                                        <div class="row" >
-                                        
-                                            <div class="col-12 col-md-4 center" >
-                                                <img src="${imagen}" class="rounded" style="max-width:100%;" alt='No Image' >
-                                            </div>
-                                            <div class="col-12 col-md-5 " >
-                                                <div class="mx-2" >${nombre} </div>
-                                            </div>
-                                            <div class="col-12 col-md-3 d-flex flex-column" >                                        
-                                                <div class="mx-2" >From: ${Sfrom} to ${Sto}  </div>
-                                                <span class="mx-2 text-muted" >${Scurrency}</span>
-                                            </div>
-                                            <div class="col-12 " >
-                                                <div class="d-flex flex-column" >
-                                                    <h6>Requeriments: </h6>
-                                                    <p>${requirement}</p>
+                                    <div class="col-12 rounded shadow-lg bg-dark text-light" >
+                                    
+                                        <div class="container-fluid  " >
+                                            <div class="row p-3" >
+
+                                                <div class="col-12 col-md-4 center" >
+                                                    <img src="${imagen}" class="rounded" style="max-width:100%;" alt='No Image' >
                                                 </div>
-                                                <div class="d-flex flex-column" >
-                                                    <h6>Responsabilities: </h6>
-                                                    <p>${requirement}</p>
+                                                <div class="col-12 col-md-5 " >
+                                                    <div class="mx-2" >${nombre} </div>
                                                 </div>
+                                                <div class="col-12 col-md-3 d-flex flex-column" >                                        
+                                                    <div class="mx-2" >From: ${Sfrom} to ${Sto}  </div>
+                                                    <span class="mx-2 text-muted" >${Scurrency}</span>
+                                                </div>
+                                                <div class="col-12 " >
+                                                    <div class="d-flex flex-column" >
+                                                        <h6>Requeriments: </h6>
+                                                        <p>${requirement}</p>
+                                                    </div>
+                                                    <div class="d-flex flex-column" >
+                                                        <h6>Responsabilities: </h6>
+                                                        <p>${requirement}</p>
+                                                    </div>
+                                                </div>
+
                                             </div>
-                                            
                                         </div>
+                                    
                                     </div>
                                 </div>
                             </div>
