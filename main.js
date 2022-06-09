@@ -1,4 +1,4 @@
-alert('v2.9.0');
+alert('v2.9.1');
 
 ciudades = [];
 vacancies = [];
@@ -97,6 +97,10 @@ function inicioNeo(){
     rowContainerEmployers = document.getElementById('containerEmployers');
     rowContainerEmployerBig = document.getElementById('rowContainerEmployerBig');
     spinner = document.getElementById('spinner');
+    
+    employerDescMoreLinkStatus = [];
+    requirementMoreLinkStatus = [];
+    responsabilityMoreLinkStatus = [];
 
     getLocalizacion();
     
@@ -111,6 +115,9 @@ function getEmployers(vacanciesEmployersIds){
 
     for (let i = 0; i < vacanciesEmployersIds.length; i++) {
 
+        requirementMoreLinkStatus[i] = true;
+        responsabilityMoreLinkStatus[i] = true;
+        employerDescMoreLinkStatus[i] = true;
         
     
         //AJAX EMPLOYERS REQUEST 
@@ -158,11 +165,11 @@ function getEmployers(vacanciesEmployersIds){
                                                 <div class="col-12 " >
                                                     <div class="d-flex flex-column" >
                                                         <h6>Requeriments: </h6>
-                                                        <p>${requirement}</p>
+                                                        <p class="requirement" >${requirement} <a href="" class="requirementMoreLink" onclick="recortarCadena()" >...</a> </p>
                                                     </div>
                                                     <div class="d-flex flex-column" >
                                                         <h6>Responsabilities: </h6>
-                                                        <p>${requirement}</p>
+                                                        <p class="responsability" >${responsability} <a href="" class="responsabilityMoreLink" onclick="recortarCadena()" >...</a></p>
                                                     </div>
                                                 </div>
 
@@ -195,7 +202,7 @@ function getEmployers(vacanciesEmployersIds){
                                 </div>
                             </div>
                             <div class="col-12 p-3">
-                                <p class=" text-justify " >${ employerDesc }</p>
+                                <p class=" text-justify employerDesc" >${ employerDesc } <a href="" class="employerDescMoreLink" onclick="recortarCadena()" >...</a></p>
                             </div>
                             <div class="col-12 my-2 p-3" >
                                 <div class="d-flex justify-content-between" >
