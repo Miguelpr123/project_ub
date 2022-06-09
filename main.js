@@ -1,4 +1,4 @@
-alert('v2.9.9');
+alert('v3.0.0');
 
 ciudades = [];
 vacancies = [];
@@ -135,7 +135,7 @@ function getEmployers(vacanciesEmployersIds){
                     if(vacancies.items[i].snippet.responsibility!=null){ responsibility = vacancies.items[i].snippet.responsibility} else{ responsibility='-' }
                     
                     divHijo[i].innerHTML = `
-                    
+                            <a href="#top" class="text-light text-decoration-none " >
                             <div class="container-fluid  rounded shadow-lg bg-dark text-light" style="cursor:pointer;" >
                                 <div class="row" >
                                     <div class="col-12 " >
@@ -170,7 +170,7 @@ function getEmployers(vacanciesEmployersIds){
                                     </div>
                                 </div>
                             </div>
-                        
+                            </a>
                     `;
                     
                     if(employers[i].type!=null) {employerType = employers[i].type} else{ employerType=''} 
