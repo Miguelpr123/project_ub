@@ -1,4 +1,4 @@
-alert('v3.0.3');
+alert('v3.0.4');
 
 ciudades = [];
 vacancies = [];
@@ -163,11 +163,11 @@ function getEmployers(vacanciesEmployersIds){
                                                 <div class="col-12 " >
                                                     <div class="d-flex flex-column" >
                                                         <h6><em>Requeriments: </em></h6>
-                                                        <p class="badge-pill p-1 badge-info" >${requirement} </p>
+                                                        <p class="rounded p-1 bg-info" >${requirement} </p>
                                                     </div>
                                                     <div class="d-flex flex-column" >
                                                         <h6><em>Responsabilities:</em> </h6>
-                                                        <p class="badge-pill p-1 badge-info" >${responsibility} </p>
+                                                        <p class="rounded p-1 bg-info" >${responsibility} </p>
                                                     </div>
                                                 </div>
 
