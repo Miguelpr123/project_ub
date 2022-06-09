@@ -1,4 +1,4 @@
-alert('v2.9.8');
+alert('v2.9.9');
 
 ciudades = [];
 vacancies = [];
@@ -132,7 +132,7 @@ function getEmployers(vacanciesEmployersIds){
                     if(vacancies.items[i].salary.to!=null){ Sto = vacancies.items[i].salary.to} else{ Sto='-' }
                     if(vacancies.items[i].salary.currency!=null){ Scurrency = vacancies.items[i].salary.currency} else{ Scurrency='-' }
                     if(vacancies.items[i].snippet.requirement!=null){ requirement = vacancies.items[i].snippet.requirement} else{ requirement='-' }
-                    if(vacancies.items[i].snippet.responsability!=null){ responsability = vacancies.items[i].snippet.responsability} else{ responsability='-' }
+                    if(vacancies.items[i].snippet.responsibility!=null){ responsibility = vacancies.items[i].snippet.responsibility} else{ responsibility='-' }
                     
                     divHijo[i].innerHTML = `
                     
@@ -160,7 +160,7 @@ function getEmployers(vacanciesEmployersIds){
                                                     </div>
                                                     <div class="d-flex flex-column" >
                                                         <h6>Responsabilities: </h6>
-                                                        <p >${responsability} </p>
+                                                        <p >${responsibility} </p>
                                                     </div>
                                                 </div>
 
