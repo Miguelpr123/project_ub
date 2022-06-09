@@ -1,4 +1,4 @@
-alert('v2.8.3');
+alert('v2.8.4');
 
 ciudades = [];
 vacancies = [];
@@ -156,15 +156,14 @@ function getEmployers(vacanciesEmployersIds){
                     if(employers[i].type!=null) {employerType = employers[i].type} else{ employerType=''} 
                     if(employers[i].description !=null) {employerDesc = employers[i].description } else{ employerDesc=''} 
                     if(employers[i].trusted !=null) {employedTrusted = employers[i].trusted  } else{ employedTrusted=''} 
-                    
-                    
+                
                     divHijo[i].setAttribute( 'onclick' , `
                         if(divEmployer==null){ 
                             divEmployer = document.createElement("div"); 
                         } 
                         divEmployer.innerHTML = \`                 
                             <div class="col-12 col-md-4 rounded m-0 p-0" >
-                                <img src="${imagen}" class="w-100 m-0 rounded" style="transform:translate(-15px , -15px ) ;" alt="">
+                                <img src="${imagen}" class="w-100 m-0 rounded" alt="">
                             </div>
                             <div class="col-12 col-md-8 py-2">
                                 <div class="d-flex flex-column" >
