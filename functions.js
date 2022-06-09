@@ -1,11 +1,4 @@
 
-	
-function init(){		
-    var myMap = new ymaps.Map("map", {
-        center: [xUser, yUser],
-        zoom: 7
-    });
-}
 
 function getCityId() {
 
