@@ -1,4 +1,4 @@
-alert('v2.7.9');
+alert('v2.8.0');
 
 ciudades = [];
 vacancies = [];
@@ -140,15 +140,20 @@ function getEmployers(vacanciesEmployersIds){
                     
                             <div class="container-fluid" >
                                 <div class="row" >
+                                    ${ if(vacancies.items[i].employer.logo_urls.original!=null) imagen = vacancies.items[i].employer.logo_urls.original else imagen='' }
                                     <div class="col-12 col-md-4" >
-                                        <img src="${vacancies.items[i].employer.logo_urls.original}" class="rounded" style="max-width:100%;" >
+                                        <img src="${imagen}" class="rounded" style="max-width:100%;" alt='No Image' >
                                     </div>
+                                    ${ if(vacancies.items[i].name!=null) nombre = vacancies.items[i].name else nombre='' }
                                     <div class="col-12 col-md-5 " >
-                                        <div class="mx-2" >${vacancies.items[i].name} </div>
+                                        <div class="mx-2" >${nombre} </div>
                                     </div>
                                     <div class="col-12 col-md-3 d-flex flex-column" >
-                                        <div class="mx-2" >From: ${vacancies.items[i].salary.from} to ${vacancies.items[i].salary.to}  </div>
-                                        <span class="mx-2 text-muted" >${vacancies.items[i].salary.currency}</span>
+                                        ${ if(vacancies.items[i].salary.from!=null) Sfrom = vacancies.items[i].salary.from else Sfrom='' }
+                                        ${ if(vacancies.items[i].salary.to!=null) Sto = vacancies.items[i].salary.to else Sto='' }
+                                        ${ if(vacancies.items[i].salary.currency!=null) Scurrency = vacancies.items[i].salary.currency else Scurrency='' }
+                                        <div class="mx-2" >From: ${Sfrom} to ${Sto}  </div>
+                                        <span class="mx-2 text-muted" >${Scurrency}</span>
                                     </div>
                                 </div>
                             </div>
