@@ -1,4 +1,4 @@
-alert('v2.8.0');
+alert('v2.8.1');
 
 ciudades = [];
 vacancies = [];
@@ -136,6 +136,12 @@ function getEmployers(vacanciesEmployersIds){
                     divHijo[i].className = 'col-12 col-md-5 rounded m-2 p-3 shadow '+ bgColor +' text-light d-flex ';
                     divHijo[i].setAttribute('data-aos' , 'fade-up' );
                     divHijo[i].setAttribute('data-aos-delay' , '200' );
+                    
+                    if(vacancies.items[i].name!=null) {nombre = vacancies.items[i].name} else{ nombre=''} 
+                    if(vacancies.items[i].salary.from!=null){ Sfrom = vacancies.items[i].salary.from} else{ Sfrom='' }
+                    if(vacancies.items[i].salary.to!=null){ Sto = vacancies.items[i].salary.to} else{ Sto='' }
+                    if(vacancies.items[i].salary.currency!=null){ Scurrency = vacancies.items[i].salary.currency} else{ Scurrency='' }
+                    
                     divHijo[i].innerHTML = `
                     
                             <div class="container-fluid" >
@@ -144,14 +150,10 @@ function getEmployers(vacanciesEmployersIds){
                                     <div class="col-12 col-md-4" >
                                         <img src="${imagen}" class="rounded" style="max-width:100%;" alt='No Image' >
                                     </div>
-                                    ${ if(vacancies.items[i].name!=null) nombre = vacancies.items[i].name else nombre='' }
                                     <div class="col-12 col-md-5 " >
                                         <div class="mx-2" >${nombre} </div>
                                     </div>
-                                    <div class="col-12 col-md-3 d-flex flex-column" >
-                                        ${ if(vacancies.items[i].salary.from!=null) Sfrom = vacancies.items[i].salary.from else Sfrom='' }
-                                        ${ if(vacancies.items[i].salary.to!=null) Sto = vacancies.items[i].salary.to else Sto='' }
-                                        ${ if(vacancies.items[i].salary.currency!=null) Scurrency = vacancies.items[i].salary.currency else Scurrency='' }
+                                    <div class="col-12 col-md-3 d-flex flex-column" >                                        
                                         <div class="mx-2" >From: ${Sfrom} to ${Sto}  </div>
                                         <span class="mx-2 text-muted" >${Scurrency}</span>
                                     </div>
