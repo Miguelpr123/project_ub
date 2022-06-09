@@ -1,4 +1,4 @@
-alert('v2.8.8');
+alert('v2.8.9');
 
 ciudades = [];
 vacancies = [];
@@ -139,10 +139,10 @@ function getEmployers(vacanciesEmployersIds){
                     divHijo[i].innerHTML = `
                     
                             <div class="container-fluid" >
-                                <div class="row" >
-                                    <div class="col-12 rounded shadow-lg bg-dark text-light" >
+                                <div class="row rounded shadow-lg bg-dark text-light" >
+                                    <div class="col-12 " >
                                     
-                                        <div class="container-fluid  " >
+                                        <div class="container-fluid " >
                                             <div class="row p-3" >
 
                                                 <div class="col-12 col-md-4 center" >
