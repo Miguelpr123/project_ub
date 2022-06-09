@@ -15,32 +15,26 @@ yUser = null;
 
         setTimeout( ()=>{
             if( xUser != null && yUser != null ){
-                ymaps.ready(init);
                 resolve([xUser , yUser]);
             }else{
                 setTimeout( ()=>{
                     if( xUser != null && yUser != null ){
-                        ymaps.ready(init);
                         resolve([xUser , yUser]);
                     }else{
                         setTimeout( ()=>{
                             if( xUser != null && yUser != null ){
-                                ymaps.ready(init);
                                 resolve([xUser , yUser]);
                             }else{
                                 setTimeout( ()=>{
                                     if( xUser != null && yUser != null ){
-                                        ymaps.ready(init);
                                         resolve([xUser , yUser]);
                                     }else{
                                         setTimeout( ()=>{
                                             if( xUser != null && yUser != null ){
-                                                ymaps.ready(init);
                                                 resolve([xUser , yUser]);
                                             }else{
                                                 setTimeout( ()=>{
                                                     if( xUser != null && yUser != null ){
-                                                        ymaps.ready(init);
                                                         resolve([xUser , yUser]);
                                                     }else{
                                                         alert('Tiempo expirado para encontrar la ubicacion');
