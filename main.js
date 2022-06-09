@@ -1,4 +1,4 @@
-alert('v2.8.9');
+alert('v2.9.0');
 
 ciudades = [];
 vacancies = [];
@@ -138,8 +138,8 @@ function getEmployers(vacanciesEmployersIds){
                     
                     divHijo[i].innerHTML = `
                     
-                            <div class="container-fluid" >
-                                <div class="row rounded shadow-lg bg-dark text-light" >
+                            <div class="container-fluid  rounded shadow-lg bg-dark text-light" >
+                                <div class="row" >
                                     <div class="col-12 " >
                                     
                                         <div class="container-fluid " >
@@ -178,25 +178,26 @@ function getEmployers(vacanciesEmployersIds){
                     if(employers[i].type!=null) {employerType = employers[i].type} else{ employerType=''} 
                     if(employers[i].description !=null) {employerDesc = employers[i].description } else{ employerDesc=''} 
                     if(employers[i].trusted !=null) {employedTrusted = employers[i].trusted  } else{ employedTrusted=''} 
+                    if(employedTrusted) {employedTrusted = 'Yes'  } else{ employedTrusted='No'}
                 
                     divHijo[i].setAttribute( 'onclick' , `
                         if(divEmployer==null){ 
                             divEmployer = document.createElement("div"); 
                         } 
                         divEmployer.innerHTML = \`                 
-                            <div class="col-12 col-md-4 rounded m-0 p-0" >
+                            <div class="col-12 col-md-4 rounded m-0 p-3" >
                                 <img src="${imagen}" class="w-100 m-0 rounded" alt="">
                             </div>
-                            <div class="col-12 col-md-8 py-2">
+                            <div class="col-12 col-md-8 p-3">
                                 <div class="d-flex flex-column" >
                                     <h4>${ employers[i].name }</h4>
                                     <div class="text-muted" ><em>${ employerType }</em></div>
                                 </div>
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 p-3">
                                 <p class=" text-justify " >${ employerDesc }</p>
                             </div>
-                            <div class="col-12 my-2" >
+                            <div class="col-12 my-2 p-3" >
                                 <div class="d-flex justify-content-between" >
                                     <div class="badge-pill badge-info " >Trusted: ${ employedTrusted }</div>
                                 </div>
