@@ -78,3 +78,73 @@ function IdTerminalDistanciaMenor( xUser , yUser , xTerminal , yTerminal , idTer
 }
 
 
+function recortarCadena(){
+    
+    /**
+     * employerDescMoreLinkStatus = false;
+    requirementMoreLinkStatus = false;
+    responsabilityMoreLinkStatus = false;
+
+     */
+
+    requirement = document.querySelectorAll('.requirement');
+    responsability =  document.querySelectorAll('.cadenaCorta');
+    employerDesc =  document.querySelectorAll('.employerDesc');
+
+    requirementMoreLink =  document.querySelectorAll('.requirementMoreLink');
+    responsabilityMoreLink =  document.querySelectorAll('.responsabilityMoreLink');
+    employerDescMoreLink =  document.querySelectorAll('.employerDescMoreLink');
+
+
+    requirementCorto = [vacanciesEmployersIds.length];
+    responsabilityCorto = [vacanciesEmployersIds.length];
+    employerDescCorto = [vacanciesEmployersIds.length];
+
+    for (let i = 0; i < vacanciesEmployersIds.length; i++) {
+
+        //employers
+        if(requirementMoreLinkStatus[i]==true){
+            requirementCorto[i] = requirement[i].innerHTML;
+            if (requirement[i].innerHTML.length > 250 ) {
+                requirement[i].innerHTML = requirementCorto.innerHTML.substring(0,100) + '';
+            }
+            requirementMoreLinkStatus[i]==false;            
+        }else{
+            requirement[i].innerHTML = requirementCorto.innerHTML;
+            requirementMoreLinkStatus[i]==true;
+        }
+
+        //responsability
+        if (responsabilityMoreLinkStatus[i]==true) {
+            responsabilityCorto[i] = responsability[i].innerHTML;
+            if (responsability[i].innerHTML.length > 250 ) {
+                responsability[i].innerHTML = responsabilityCorto.innerHTML.substring(0,100) + '';
+            }
+            responsabilityMoreLinkStatus[i]==false;            
+        }else{
+            responsability[i].innerHTML = responsabilityCorto.innerHTML;
+            responsabilityMoreLinkStatus[i]==true;
+        }
+        
+        //employer
+        if(employerDescMoreLinkStatus[i]==true){
+            employerDescCorto[i] = employerDesc[i].innerHTML;
+            if (employerDesc[i].innerHTML.length > 250 ) {
+                employerDesc[i].innerHTML = employerDescCorto.innerHTML.substring(0,100) + '';
+            }
+            employerDescMoreLinkStatus[i]==false;            
+        }else{
+            employerDesc[i].innerHTML = employerDescCorto.innerHTML;
+            employerDescMoreLinkStatus[i]==true;
+        }
+
+        
+
+    }
+    
+    alert(cadenaLarga);
+}
+
+
+
+
