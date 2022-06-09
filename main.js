@@ -1,4 +1,4 @@
-alert('v2.8.5');
+alert('v2.8.6');
 
 ciudades = [];
 vacancies = [];
@@ -150,16 +150,15 @@ function getEmployers(vacanciesEmployersIds){
                                         <div class="mx-2" >From: ${Sfrom} to ${Sto}  </div>
                                         <span class="mx-2 text-muted" >${Scurrency}</span>
                                     </div>
-                                </div>
-                            </div>
-                            
-                            <div class="container-fluid" >
-                                <div class="row" >
                                     <div class="col-12 " >
-                                        <h6>Requeriments: </h6>
-                                        <p>${requirement}</p>
-                                        <h6>Responsabilities: </h6>
-                                        <p>${requirement}</p>
+                                        <div class="d-flex flex-column" >
+                                            <h6>Requeriments: </h6>
+                                            <p>${requirement}</p>
+                                        </div>
+                                        <div class="d-flex flex-column" >
+                                            <h6>Responsabilities: </h6>
+                                            <p>${requirement}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
