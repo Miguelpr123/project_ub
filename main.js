@@ -1,4 +1,4 @@
-alert('v2.6.8');
+alert('v2.7.2');
 
 ciudades = [];
 vacancies = [];
@@ -106,6 +106,8 @@ function getEmployers(vacanciesEmployersIds){
 
     reqEmployers = [vacanciesEmployersIds.length];
     divEmployer = null;
+    contColor = 0;
+    bgColor = "bg-dark";
     divHijo = [vacanciesEmployersIds.length];
 
     for (let i = 0; i < vacanciesEmployersIds.length; i++) {
@@ -120,15 +122,29 @@ function getEmployers(vacanciesEmployersIds){
                 if(reqEmployers[i].status == 200){                        
                     employers[i] = reqEmployers[i].responseText;
 
-                    employers[i] =  JSON.parse( employers[i] );
+                    employers[i] =  JSON.parse( employers[i] );                    
                     
                     divHijo[i] = document.createElement('div');
-                    divHijo[i].className = 'col-12 badge-pill m-2 p-3 shadow-sm bg-dark text-light d-flex ';
+                    if(contColor%2==0){
+                        bgColor = "bg-dark";
+                    }else{
+                        bgColor = "bg-white";
+                    }
+                    divHijo[i].className = 'col-12 badge-pill m-2 p-3 shadow-sm '+ bgColor +' text-light d-flex ';
                     divHijo[i].setAttribute('data-aos' , 'fade-up' );
                     divHijo[i].setAttribute('data-aos-delay' , '200' );
                     divHijo[i].innerHTML = `
-                        <div class="mx-2" >Name: ${vacancies.items[i].name} </div>
-                        <div class="mx-2" >Department: ${vacancies.items[i].department} </div>
+                        <div class="col-12 col-md-4" >
+                            <img src=${vacancies.items[i].employer.logo_urls.240} class="rounded" style="max-width:100%;" >
+                        </div>
+                        <div class="col-12 col-md-5 " >
+                            <div class="mx-2" >Name: ${vacancies.items[i].name} </div>
+                        </div>
+                        <div class="col-12 col-md-3 d-flex flex-column" >
+                            <div class="mx-2" >From: ${vacancies.items[i].salary.from} to ${vacancies.items[i].salary.to}  </div>
+                            <span class="mx-2 text-muted" >${vacancies.items[i].salary.currency}</span>
+                        </div>
+                        
                     `;
                     divHijo[i].setAttribute( 'onclick' , `
                         if(divEmployer==null){ 
