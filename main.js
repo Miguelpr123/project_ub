@@ -1,4 +1,4 @@
-alert('v2.7.7');
+alert('v2.7.9');
 
 ciudades = [];
 vacancies = [];
@@ -128,21 +128,23 @@ function getEmployers(vacanciesEmployersIds){
                     divHijo[i] = document.createElement('div');
                     if(contColor%2==0){
                         bgColor = "bg-dark";
+                        contColor++;
                     }else{
                         bgColor = "bg-white";
+                        contColor++;
                     }
-                    divHijo[i].className = 'col-12 badge-pill m-2 p-3 shadow-sm '+ bgColor +' text-light d-flex ';
+                    divHijo[i].className = 'col-12 col-md-5 rounded m-2 p-3 shadow '+ bgColor +' text-light d-flex ';
                     divHijo[i].setAttribute('data-aos' , 'fade-up' );
                     divHijo[i].setAttribute('data-aos-delay' , '200' );
                     divHijo[i].innerHTML = `
-                        <div class="col-12 col-md-5 " >
+                    
                             <div class="container-fluid" >
                                 <div class="row" >
                                     <div class="col-12 col-md-4" >
                                         <img src="${vacancies.items[i].employer.logo_urls.original}" class="rounded" style="max-width:100%;" >
                                     </div>
                                     <div class="col-12 col-md-5 " >
-                                        <div class="mx-2" >Name: ${vacancies.items[i].name} </div>
+                                        <div class="mx-2" >${vacancies.items[i].name} </div>
                                     </div>
                                     <div class="col-12 col-md-3 d-flex flex-column" >
                                         <div class="mx-2" >From: ${vacancies.items[i].salary.from} to ${vacancies.items[i].salary.to}  </div>
@@ -150,7 +152,6 @@ function getEmployers(vacanciesEmployersIds){
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         
                     `;
                     divHijo[i].setAttribute( 'onclick' , `
