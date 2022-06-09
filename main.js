@@ -1,4 +1,4 @@
-alert('v3.0.0');
+alert('v3.0.1');
 
 ciudades = [];
 vacancies = [];
@@ -149,18 +149,18 @@ function getEmployers(vacanciesEmployersIds){
                                                 <div class="col-12 col-md-5 " >
                                                     <div class="mx-2" >${nombre} </div>
                                                 </div>
-                                                <div class="col-12 col-md-3 d-flex flex-column" >                                        
-                                                    <div class="mx-2" >From: ${Sfrom} to ${Sto}  </div>
-                                                    <span class="mx-2 text-muted" >${Scurrency}</span>
+                                                <div class="col-12 col-md-3 d-flex flex-column " >                                        
+                                                    <div class="mx-2" >From: <span class="badge-pill p-1 badge-info" >${Sfrom}</span> to <span class="badge-pill p-1 badge-info"  >${Sto}</span>  </div>
+                                                    <span class="m-2 text-muted" ><em><strong>${Scurrency}</strong></em></span>
                                                 </div>
                                                 <div class="col-12 " >
                                                     <div class="d-flex flex-column" >
-                                                        <h6>Requeriments: </h6>
-                                                        <p >${requirement} </p>
+                                                        <h6><em>Requeriments: </em></h6>
+                                                        <p class="badge-pill p-1 badge-info" >${requirement} </p>
                                                     </div>
                                                     <div class="d-flex flex-column" >
-                                                        <h6>Responsabilities: </h6>
-                                                        <p >${responsibility} </p>
+                                                        <h6><em>Responsabilities:</em> </h6>
+                                                        <p class="badge-pill p-1 badge-info" >${responsibility} </p>
                                                     </div>
                                                 </div>
 
