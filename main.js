@@ -1,4 +1,4 @@
-alert('v2.9.7');
+alert('v2.9.8');
 
 ciudades = [];
 vacancies = [];
@@ -224,12 +224,3 @@ function getEmployers(vacanciesEmployersIds){
 
 
 window.addEventListener('load', inicioNeo );
-
-
-
-
-
-
-
-
-
