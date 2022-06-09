@@ -1,4 +1,4 @@
-alert('v2.8.2');
+alert('v2.8.3');
 
 ciudades = [];
 vacancies = [];
@@ -107,8 +107,6 @@ function getEmployers(vacanciesEmployersIds){
 
     reqEmployers = [vacanciesEmployersIds.length];
     divEmployer = null;
-    contColor = 0;
-    bgColor = "bg-dark";
     divHijo = [vacanciesEmployersIds.length];
 
     for (let i = 0; i < vacanciesEmployersIds.length; i++) {
@@ -125,15 +123,8 @@ function getEmployers(vacanciesEmployersIds){
 
                     employers[i] =  JSON.parse( employers[i] );                    
                     
-                    divHijo[i] = document.createElement('div');
-                    if(contColor%2==0){
-                        bgColor = "bg-dark";
-                        contColor++;
-                    }else{
-                        bgColor = "bg-white";
-                        contColor++;
-                    }
-                    divHijo[i].className = 'col-12 col-md-5 rounded m-2 p-3 shadow '+ bgColor +' text-light d-flex ';
+                    divHijo[i] = document.createElement('div');                    
+                    divHijo[i].className = 'col-12 col-md-5 rounded m-2 p-3 shadow bg-dark text-light d-flex ';
                     divHijo[i].setAttribute('data-aos' , 'fade-up' );
                     divHijo[i].setAttribute('data-aos-delay' , '200' );
                     
