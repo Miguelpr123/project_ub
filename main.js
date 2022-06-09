@@ -1,4 +1,4 @@
-alert('v2.7.2');
+alert('v2.7.4');
 
 ciudades = [];
 vacancies = [];
@@ -96,6 +96,7 @@ function inicioNeo(){
     city_num_i = null;
     rowContainerEmployers = document.getElementById('containerEmployers');
     rowContainerEmployerBig = document.getElementById('rowContainerEmployerBig');
+    spinner = document.getElementById('spinner');
 
     getLocalizacion();
     
@@ -134,15 +135,21 @@ function getEmployers(vacanciesEmployersIds){
                     divHijo[i].setAttribute('data-aos' , 'fade-up' );
                     divHijo[i].setAttribute('data-aos-delay' , '200' );
                     divHijo[i].innerHTML = `
-                        <div class="col-12 col-md-4" >
-                            <img src=${vacancies.items[i].employer.logo_urls.240} class="rounded" style="max-width:100%;" >
-                        </div>
                         <div class="col-12 col-md-5 " >
-                            <div class="mx-2" >Name: ${vacancies.items[i].name} </div>
-                        </div>
-                        <div class="col-12 col-md-3 d-flex flex-column" >
-                            <div class="mx-2" >From: ${vacancies.items[i].salary.from} to ${vacancies.items[i].salary.to}  </div>
-                            <span class="mx-2 text-muted" >${vacancies.items[i].salary.currency}</span>
+                            <div class="container-fluid" >
+                                <div class="row" >
+                                    <div class="col-12 col-md-4" >
+                                        <img src=${vacancies.items[i].employer.logo_urls.240} class="rounded" style="max-width:100%;" >
+                                    </div>
+                                    <div class="col-12 col-md-5 " >
+                                        <div class="mx-2" >Name: ${vacancies.items[i].name} </div>
+                                    </div>
+                                    <div class="col-12 col-md-3 d-flex flex-column" >
+                                        <div class="mx-2" >From: ${vacancies.items[i].salary.from} to ${vacancies.items[i].salary.to}  </div>
+                                        <span class="mx-2 text-muted" >${vacancies.items[i].salary.currency}</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                     `;
@@ -180,7 +187,7 @@ function getEmployers(vacanciesEmployersIds){
         };
         reqEmployers[i].send(null);
         //FIN AJAX EMPLOYERS REQUEST 
-
+        
     }
     
 
