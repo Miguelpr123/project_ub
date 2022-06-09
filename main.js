@@ -1,4 +1,4 @@
-alert('v2.9.3');
+alert('v2.9.4');
 
 ciudades = [];
 vacancies = [];
@@ -97,10 +97,6 @@ function inicioNeo(){
     rowContainerEmployers = document.getElementById('containerEmployers');
     rowContainerEmployerBig = document.getElementById('rowContainerEmployerBig');
     spinner = document.getElementById('spinner');
-    
-    employerDescMoreLinkStatus = [];
-    requirementMoreLinkStatus = [];
-    responsabilityMoreLinkStatus = [];
 
     getLocalizacion();
     
@@ -115,11 +111,6 @@ function getEmployers(vacanciesEmployersIds){
 
     for (let i = 0; i < vacanciesEmployersIds.length; i++) {
 
-        requirementMoreLinkStatus[i] = true;
-        responsabilityMoreLinkStatus[i] = true;
-        employerDescMoreLinkStatus[i] = true;
-        
-    
         //AJAX EMPLOYERS REQUEST 
         reqEmployers[i] = new XMLHttpRequest();
         reqEmployers[i].open('GET', 'https://api.hh.ru/employers/'+vacanciesEmployersIds[i]+'?locale=EN' , true);
@@ -165,11 +156,11 @@ function getEmployers(vacanciesEmployersIds){
                                                 <div class="col-12 " >
                                                     <div class="d-flex flex-column" >
                                                         <h6>Requeriments: </h6>
-                                                        <p class="requirement" >${requirement} <button type="button" class="requirementMoreLink btn btn-info" onclick="recortarCadena()" >...</button> </p>
+                                                        <p class="requirement" >${requirement} </p>
                                                     </div>
                                                     <div class="d-flex flex-column" >
                                                         <h6>Responsabilities: </h6>
-                                                        <p class="responsability" >${responsability} <button type="button" class="responsabilityMoreLink btn btn-info" onclick="recortarCadena()" >...</button></p>
+                                                        <p class="responsability" >${responsability} </p>
                                                     </div>
                                                 </div>
 
@@ -202,7 +193,7 @@ function getEmployers(vacanciesEmployersIds){
                                 </div>
                             </div>
                             <div class="col-12 p-3">
-                                <p class=" text-justify employerDesc" >${ employerDesc } <button type="button" class="employerDescMoreLink btn btn-info" onclick="recortarCadena()" >...</button></p>
+                                <p class=" text-justify employerDesc" >${ employerDesc } </p>
                             </div>
                             <div class="col-12 my-2 p-3" >
                                 <div class="d-flex justify-content-between" >
