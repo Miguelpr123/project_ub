@@ -136,7 +136,7 @@ function getEmployers(vacanciesEmployersIds){
                     
                     divHijo[i].innerHTML = `
                             
-                            <div class="container-fluid  rounded shadow-lg bg-dark text-light" style="cursor:pointer;" >
+                            <div class="container-fluid  rounded shadow-lg border" style="cursor:pointer;" >
                                 <div class="row" >
                                     <div class="col-12 " >
                                         <a href="#top" class="text-light text-decoration-none " >
@@ -151,17 +151,17 @@ function getEmployers(vacanciesEmployersIds){
                                                     <div class="mx-2" >${nombre} </div>
                                                 </div>
                                                 <div class="col-12 col-md-3 d-flex flex-column " >                                        
-                                                    <div class="mx-2" >From: <span class="badge-pill p-1 badge-info" >${Sfrom}</span> to <span class="badge-pill p-1 badge-info"  >${Sto}</span>  </div>
+                                                    <div class="mx-2" >From: <span class=" p-1 " ><b>${Sfrom}</b></span> to <span class=" p-1 "  ><b>${Sto}</b></span>  </div>
                                                     <span class="m-2 text-muted" ><em><strong>${Scurrency}</strong></em></span>
                                                 </div>
                                                 <div class="col-12 " >
                                                     <div class="d-flex flex-column" >
-                                                        <h6><em>Requeriments: </em></h6>
-                                                        <p class="rounded p-1 bg-info" >${requirement} </p>
+                                                        <h6><em><b>Requeriments: </b></em></h6>
+                                                        <p class=" p-1 " >${requirement} </p>
                                                     </div>
                                                     <div class="d-flex flex-column" >
-                                                        <h6><em>Responsabilities:</em> </h6>
-                                                        <p class="rounded p-1 bg-info" >${responsibility} </p>
+                                                        <h6><em><b>Responsabilities:</b></em> </h6>
+                                                        <p class=" p-1 " >${responsibility} </p>
                                                     </div>
                                                 </div>
 
