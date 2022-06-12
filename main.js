@@ -139,7 +139,7 @@ function getEmployers(vacanciesEmployersIds){
                             <div class="container-fluid  rounded shadow-lg border" style="cursor:pointer;" >
                                 <div class="row" >
                                     <div class="col-12 " >
-                                        <a href="#top" class="text-light text-decoration-none " >
+                                        <a href="#top" class="text-dark text-decoration-none " >
                                     
                                         <div class="container-fluid " >
                                             <div class="row p-3" >
