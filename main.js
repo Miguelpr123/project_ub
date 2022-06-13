@@ -136,7 +136,7 @@ function getEmployers(vacanciesEmployersIds){
                     
                     divHijo[i].innerHTML = `
                             
-                            <div class="container-fluid  rounded shadow-lg border" style="cursor:pointer;" >
+                            <div class="container-fluid  rounded shadow-lg border zoom-fit" style="cursor:pointer;" >
                                 <div class="row" >
                                     <div class="col-12 " >
                                         <a href="#top" class="text-dark text-decoration-none " >
