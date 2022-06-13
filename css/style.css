@@ -48,7 +48,7 @@ body {
 }
 
 .zoom-fit:hover{
-        transform :scale(1.25 , 1.25);
+        transform :scale(0.75 , 0.75);
         transition :transform 2s ease;
 }
 
