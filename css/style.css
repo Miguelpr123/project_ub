@@ -43,14 +43,18 @@ body {
         transition : background-size 2s ease;
 }
 
-.zoom-fit{
-        transition:transform 2s ease;
+
+@media (min-width: 768px) {
+	.zoom-fit:hover{
+		transform :scale(0.75 , 0.75);
+		transition :transform 2s ease;
+	}
+	.zoom-fit{
+		transition:transform 2s ease;
+	}
 }
 
-.zoom-fit:hover{
-        transform :scale(0.75 , 0.75);
-        transition :transform 2s ease;
-}
+
 
 .mh{
         -webkit-min-height :200px; 
